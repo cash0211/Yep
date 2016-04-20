@@ -9,12 +9,25 @@
 #import "HomePageViewController.h"
 #import "MultipleChoiceView.h"
 #import "PromotionView.h"
-
+#import "GridView.h"
+#import "FlowView.h"
 #import "YYKit.h"
+#import "MJRefresh.h"
+#import "MJChiBaoZiHeader.h"
 
-@interface HomePageViewController ()
+#define kYPTopMargin     10
 
+#define kYPBackgroundColor              UIColorHex(f2f2f2)
+
+@interface HomePageViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) MultipleChoiceView *multipleView;
+@property (nonatomic, strong) PromotionView      *promotionView;
+@property (nonatomic, strong) GridView           *gridView;
+@property (nonatomic, strong) FlowView           *flowView;
+
+@property (nonatomic, strong) NSMutableArray     *guessLikeItems;
 
 @end
 
@@ -29,13 +42,23 @@
     if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
-    
+    self.view.backgroundColor = kYPBackgroundColor;
+
     [self _initNavBar];
+    [self _initTableView];
     [self _initMultipleChoiceView];
     [self _initPromotionView];
     [self _initGridView];
     [self _initFlowView];
-    [self _initTableView];
+   
+    _guessLikeItems = [NSMutableArray arrayWithCapacity:3];
+    
+    MJChiBaoZiHeader *header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(_loadNewData)];
+    header.automaticallyChangeAlpha = YES;
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
+    _tableView.mj_header = header;
+    [_tableView.mj_header beginRefreshing];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,6 +103,12 @@
     
 }
 
+- (void)_loadNewData {
+    
+    sleep(1.5);
+    [_tableView.mj_header endRefreshing];
+}
+
 
 #pragma mark - Public methods
 
@@ -103,35 +132,106 @@
     
 }
 
+- (void)_initTableView {
+    _tableView = [UITableView new];
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    
+    _tableView.frame = self.view.bounds;
+    _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    _tableView.scrollIndicatorInsets = _tableView.contentInset;
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.backgroundView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_tableView];
+    
+    if (kSystemVersion < 7) {
+        _tableView.top -= 64;
+        _tableView.height += 20;
+    }
+}
+
 - (void)_initMultipleChoiceView {
     _multipleView = [MultipleChoiceView sharedView];
-    [self.view addSubview:_multipleView];
+    [_tableView addSubview:_multipleView];
 }
 
 - (void)_initPromotionView {
-    PromotionView *promotionView = [[PromotionView alloc] initWithFrame:CGRectMake(0, _multipleView.bottom, kScreenWidth, 60)];
-    [self.view addSubview:promotionView];
+    _promotionView = [[PromotionView alloc] initWithFrame:CGRectMake(0, _multipleView.bottom + kYPTopMargin, 0, 0)];
+    _promotionView.titleLabel.text = @"煲宫锅物料理";
+    _promotionView.priceLabel.text = @"$ 65";
+    _promotionView.countDownLabel.text = @"距离结束 ";
+    [_tableView addSubview:_promotionView];
 }
 
 - (void)_initGridView {
+    _gridView = [[GridView alloc] initWithFrame:CGRectMake(0, _promotionView.bottom + kYPTopMargin, 0, 0)];
+    _gridView.topLeftTitleLabel.text = @"8折吃海鲜";
+    _gridView.topLeftDescLabel.text = @"领千万红包";
+    _gridView.topRightTitleLabel.text = @"抢1000万";
+    _gridView.topRightDescLabel.text = @"红包大放送";
+    _gridView.bottomLeftTitleLabel.text = @"特价看大片";
+    _gridView.bottomLeftDescLabel.text = @"4月超口碑";
+    _gridView.bottomRightTitleLabel.text = @"老字号馆子";
+    _gridView.bottomRightDescLabel.text = @"地道够美味";
     
+    [_tableView addSubview:_gridView];
 }
 
 - (void)_initFlowView {
-    
-}
-
-- (void)_initTableView {
-    
-    
+    _flowView = [[FlowView alloc] initWithFrame:CGRectMake(0, _gridView.bottom + kYPTopMargin, 0, 0)];
+    _flowView.leftTitleLabel.text = @"爱车";
+    _flowView.leftDescLabel.text = @"9.9元洗车";
+    _flowView.middleTitleLabel.text = @"家装";
+    _flowView.middleDescLabel.text = @"9元送家电";
+    _flowView.topRightTitleLabel.text = @"美发";
+    _flowView.topRightDescLabel.text = @"9元做造型";
+    _flowView.bottomRightTitleLabel.text = @"结婚";
+    _flowView.bottomRightDescLabel.text = @"天天秒杀爆款";
+    [_tableView addSubview:_flowView];
 }
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (0 == section) {
+        return 1;
+    }
+    return _guessLikeItems.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (0 != indexPath.section) {
+        NSString *cellID = @"cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        }
+        cell.textLabel.text = @"dd";
+        return cell;
+    }
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"nothing"];
+    cell.contentView.backgroundColor = kYPBackgroundColor;
+    return cell;
+}
 
 
 #pragma mark - UITableViewDataDelegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (0 == indexPath.section) {
+        return 800;
+    }
+    return 80;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return NO;
+}
 
 
 #pragma mark - CustomDelegate

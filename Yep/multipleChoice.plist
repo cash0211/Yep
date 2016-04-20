@@ -4,36 +4,36 @@
 <array>
 	<array>
 		<array>
-			<string>丽人</string>
-			<string>2.png</string>
+			<string>足疗按摩</string>
+			<string>masaji.png</string>
 		</array>
 		<array>
-			<string>亲子</string>
-			<string>son.png</string>
+			<string>看演出</string>
+			<string>show.png</string>
 		</array>
 		<array>
-			<string>结婚</string>
+			<string>周边游</string>
+			<string>around.png</string>
+		</array>
+		<array>
+			<string>会员卡</string>
+			<string>vip.png</string>
+		</array>
+		<array>
+			<string>购物商场</string>
+			<string>market.png</string>
+		</array>
+		<array>
+			<string>拍婚照</string>
 			<string>marry.png</string>
 		</array>
 		<array>
-			<string>家装</string>
-			<string>7.png</string>
+			<string>全部分类</string>
+			<string>allCategory.png</string>
 		</array>
 		<array>
-			<string>订座</string>
-			<string>reservation.png</string>
-		</array>
-		<array>
-			<string>找优惠</string>
-			<string>coupon.png</string>
-		</array>
-		<array>
-			<string>有料</string>
-			<string>8.png</string>
-		</array>
-		<array>
-			<string>写点评</string>
-			<string>comment.png</string>
+			<string>爱车</string>
+			<string>car.png</string>
 		</array>
 	</array>
 	<array>
@@ -42,28 +42,28 @@
 			<string>01.png</string>
 		</array>
 		<array>
-			<string>看电影</string>
-			<string>movie.png</string>
-		</array>
-		<array>
-			<string>小吃快餐</string>
-			<string>fastfood.png</string>
-		</array>
-		<array>
-			<string>休闲娱乐</string>
-			<string>masaji.png</string>
-		</array>
-		<array>
 			<string>团购闪惠</string>
 			<string>groupbuy.png</string>
+		</array>
+		<array>
+			<string>看电影</string>
+			<string>movie.png</string>
 		</array>
 		<array>
 			<string>KTV</string>
 			<string>ktv.png</string>
 		</array>
 		<array>
+			<string>小吃快餐</string>
+			<string>fastfood.png</string>
+		</array>
+		<array>
 			<string>订外卖</string>
 			<string>takeout.png</string>
+		</array>
+		<array>
+			<string>休闲娱乐</string>
+			<string>masaji.png</string>
 		</array>
 		<array>
 			<string>订酒店</string>
@@ -72,36 +72,36 @@
 	</array>
 	<array>
 		<array>
-			<string>足疗按摩</string>
-			<string>masaji.png</string>
+			<string>丽人</string>
+			<string>2.png</string>
 		</array>
 		<array>
-			<string>周边游</string>
-			<string>around.png</string>
+			<string>订座</string>
+			<string>reservation.png</string>
 		</array>
 		<array>
-			<string>购物商场</string>
-			<string>market.png</string>
+			<string>亲子</string>
+			<string>son.png</string>
 		</array>
 		<array>
-			<string>全部分类</string>
-			<string>allCategory.png</string>
+			<string>找优惠</string>
+			<string>coupon.png</string>
 		</array>
 		<array>
-			<string>看演出</string>
-			<string>show.png</string>
-		</array>
-		<array>
-			<string>会员卡</string>
-			<string>vip.png</string>
-		</array>
-		<array>
-			<string>拍婚照</string>
+			<string>结婚</string>
 			<string>marry.png</string>
 		</array>
 		<array>
-			<string>爱车</string>
-			<string>car.png</string>
+			<string>有料</string>
+			<string>8.png</string>
+		</array>
+		<array>
+			<string>家装</string>
+			<string>7.png</string>
+		</array>
+		<array>
+			<string>写点评</string>
+			<string>comment.png</string>
 		</array>
 	</array>
 </array>

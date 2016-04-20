@@ -14,9 +14,14 @@
 #import "CALayer+YYAdd.h"
 #import "UIColor+YYAdd.h"
 
-#define kItemHeight   50
-#define kViewHeight   kItemHeight * 3 + 20
-#define kOnePageCount 8
+#define kOnePageCount          8
+#define kItemHeight            50
+#define kViewHeight            kItemHeight * 3 + 42
+#define kCollectionViewHeight  kItemHeight * 3 + 14
+#define kLayoutItemSize        (kCollectionViewHeight) / 2
+
+#define kPageControlIndicatorTintColor  UIColorHex(f2f2f2)
+#define kBottomLineColor                [UIColor colorWithWhite:0.000 alpha:0.15].CGColor
 
 @interface MultipleChoiceView () <UICollectionViewDelegate, UICollectionViewDataSource, MultipleChoiceScrollViewDelegate>
 
@@ -47,10 +52,12 @@
     if (!self) {
         return nil;
     }
-    self.frame = CGRectMake(0, 64, kScreenWidth, kViewHeight);
+    self.backgroundColor = [UIColor whiteColor];
+    self.frame = CGRectMake(0, 0, kScreenWidth, kViewHeight);
     [self _initItems];
     [self _initCollectionView];
     [self _initPageControl];
+
     return self;
 }
 
@@ -68,11 +75,11 @@
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.itemSize = CGSizeMake(itemWidth, kItemHeight * 3 / 2);
+    layout.itemSize = CGSizeMake(itemWidth, kLayoutItemSize);
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
     
-    _collectionView = [[MultipleChoiceScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kItemHeight * 3) collectionViewLayout:layout];
+    _collectionView = [[MultipleChoiceScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kCollectionViewHeight) collectionViewLayout:layout];
     [_collectionView registerClass:[MultipleItemCell class] forCellWithReuseIdentifier:@"cell"];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -83,17 +90,18 @@
     
     _pageControl = [UIPageControl new];
     _pageControl.size = CGSizeMake(kScreenWidth, 20);
-    _pageControl.top = _collectionView.bottom;
+    _pageControl.bottom = self.height - 2;
     _pageControl.numberOfPages = _multipleItems.count;
     _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
-    _pageControl.pageIndicatorTintColor = [UIColor grayColor];
+    _pageControl.pageIndicatorTintColor = kPageControlIndicatorTintColor;
     _pageControl.userInteractionEnabled = NO;
-    [self addSubview:_pageControl];
     
     _bottomLine = [CALayer layer];
     _bottomLine.size = CGSizeMake(kScreenWidth, CGFloatFromPixel(1));
     _bottomLine.bottom = self.height;
-    _bottomLine.backgroundColor = UIColorHex(e8e8e8).CGColor;
+    _bottomLine.backgroundColor = kBottomLineColor;
+    
+    [self addSubview:_pageControl];
     [self.layer addSublayer:_bottomLine];
 }
 
@@ -109,7 +117,6 @@
 
 - (NSInteger)_calculateCurrentPageIndex:(UIScrollView *)scrollView  {
     
-    NSLog(@"%f", scrollView.contentOffset.x);
     CGFloat contentOffsetX = scrollView.contentOffset.x;
     NSInteger currentPageIndex =_currentPageIndex;
     if (contentOffsetX < kScreenWidth) {
@@ -145,6 +152,7 @@
 
 - (void)multipleChoiceScrollViewDidTapCell:(MultipleItemCell *)cell {
     
+    // 向上传递
     NSLog(@"%@, %@", cell.descImageView, cell.descLabel.text);
 }
 

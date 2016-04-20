@@ -10,4 +10,10 @@
 
 @interface PromotionView : UIView
 
+@property (nonatomic, strong) UIImageView *promotionImageView;
+@property (nonatomic, strong) UILabel     *titleLabel;
+@property (nonatomic, strong) UILabel     *priceLabel;
+@property (nonatomic, strong) UILabel     *countDownLabel;
+@property (nonatomic, strong) CALayer     *indicatorArrow;
+
 @end

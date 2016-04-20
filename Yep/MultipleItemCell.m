@@ -17,13 +17,14 @@
         return nil;
     }
     _descImageView = [UIImageView new];
-    _descImageView.size = CGSizeMake(40, 40);
+    _descImageView.size = CGSizeMake(50, 50);
     _descImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [self.contentView addSubview:_descImageView];
     
     _descLabel = [UILabel new];
-    _descLabel.font = [UIFont systemFontOfSize:15];
-    _descLabel.text = @"test";
+    _descLabel.font = [UIFont systemFontOfSize:11];
+    _descLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [self.contentView addSubview:_descImageView];
     [self.contentView addSubview:_descLabel];
     
     return self;
@@ -37,8 +38,9 @@
 - (void)updateLayout {
     _descImageView.center = CGPointMake(self.width / 2, self.height / 2);
     _descImageView.backgroundColor = [UIColor purpleColor];
-//    _descLabel.center = CGPointMake(_descImageView.bottom + 5, _descImageView.center.y);
-    _descLabel.center = CGPointMake(self.width / 2, self.height / 2);
+    _descLabel.top = _descImageView.bottom + 3;
+    _descLabel.left = _descImageView.left;
+    _descLabel.size = CGSizeMake(_descImageView.width, 20);
 }
 
 @end

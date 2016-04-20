@@ -9,8 +9,22 @@
 #import "PromotionView.h"
 #import "YYKit.h"
 
-#define kYPTopMargin     8
-#define kViewHeight      80
+#define kYPTopMargin     15
+#define kViewHeight      68
+#define kYPCellPadding   15
+#define kImageViewSize   kViewHeight - kYPTopMargin * 2
+
+#define kPriceLabelTintColor       UIColorHex(fd8224)
+#define kCountDownLabelTextColor   UIColorHex(b4b4b4)
+#define kBottomLineColor           [UIColor colorWithWhite:0.000 alpha:0.15].CGColor
+#define kViewHighlightColor        UIColorHex(f0f0f0)
+
+@interface PromotionView ()
+
+@property (nonatomic, strong) CALayer *topLine;
+@property (nonatomic, strong) CALayer *bottomLine;
+
+@end
 
 @implementation PromotionView
 
@@ -19,9 +33,74 @@
     if (!self) {
         return nil;
     }
-    
-    self.backgroundColor = [UIColor orangeColor];
+    self.backgroundColor = [UIColor whiteColor];
+    self.size = CGSizeMake(kScreenWidth, kViewHeight);
+    [self _initSubViews];
     return self;
 }
 
+- (void)_initSubViews {
+    
+    _topLine = [CALayer layer];
+    _topLine.size = CGSizeMake(kScreenWidth, CGFloatFromPixel(1));
+    _topLine.backgroundColor = kBottomLineColor;
+    
+    _promotionImageView = [UIImageView new];
+    _promotionImageView.size = CGSizeMake(kImageViewSize, kImageViewSize);
+    _promotionImageView.backgroundColor = [UIColor purpleColor];
+    _promotionImageView.top = kYPTopMargin;
+    _promotionImageView.left = kYPCellPadding;
+    
+    _titleLabel = [UILabel new];
+    _titleLabel.size = CGSizeMake(100, 20);
+    _titleLabel.font = [UIFont systemFontOfSize:15];
+    _titleLabel.top = _promotionImageView.top;
+    _titleLabel.left = _promotionImageView.right + kYPCellPadding;
+    
+    _priceLabel = [UILabel new];
+    _priceLabel.size = CGSizeMake(100, 20);
+    _priceLabel.font = [UIFont systemFontOfSize:14];
+    _priceLabel.textColor = [UIColor orangeColor];
+    _priceLabel.left = _titleLabel.right;
+    _priceLabel.bottom = _titleLabel.bottom;
+    
+    _countDownLabel = [UILabel new];
+    _countDownLabel.size = CGSizeMake(200, 20);
+    _countDownLabel.font = [UIFont systemFontOfSize:12];
+    _countDownLabel.textColor = kCountDownLabelTextColor;
+    _countDownLabel.left = _titleLabel.left;
+    _countDownLabel.bottom = self.height - 10;
+    
+    _bottomLine = [CALayer layer];
+    _bottomLine.size = CGSizeMake(kScreenWidth, CGFloatFromPixel(1));
+    _bottomLine.bottom = self.height;
+    _bottomLine.backgroundColor = kBottomLineColor;
+    
+    [self addSubview:_promotionImageView];
+    [self addSubview:_titleLabel];
+    [self addSubview:_priceLabel];
+    [self addSubview:_countDownLabel];
+    [self.layer addSublayer:_topLine];
+    [self.layer addSublayer:_bottomLine];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = kViewHighlightColor;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = [UIColor whiteColor];
+    // 向上传递
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    self.backgroundColor = [UIColor whiteColor];
+}
+
 @end
+
+
+
+
+
+

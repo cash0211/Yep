@@ -25,7 +25,6 @@
     self.clipsToBounds = NO;
     self.canCancelContentTouches = NO;
     self.multipleTouchEnabled = NO;
-    self.backgroundColor = [UIColor grayColor];
     return self;
 }
 
