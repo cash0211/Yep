@@ -201,6 +201,22 @@
     [_middleBtn addSubview:_middleDescLabel];
     [_topRightBtn addSubview:_topRightDescLabel];
     [_bottomRightBtn addSubview:_bottomRightDescLabel];
+    
+    [_leftBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        NSLog(@"_leftBtn");
+    }];
+    
+    [_middleBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        NSLog(@"_middleBtn");
+    }];
+    
+    [_topRightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        NSLog(@"_topRightBtn");
+    }];
+    
+    [_bottomRightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+        NSLog(@"_bottomRightBtn");
+    }];
 }
 
 

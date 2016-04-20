@@ -281,6 +281,9 @@
 		C98FF5EF1CC66CE2006AF5EF /* dropdown_loading_02@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C98FF5701CC66CE2006AF5EF /* dropdown_loading_02@2x.png */; };
 		C98FF5F01CC66CE2006AF5EF /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = C98FF5721CC66CE2006AF5EF /* Contents.json */; };
 		C98FF5F11CC66CE2006AF5EF /* dropdown_loading_03@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C98FF5731CC66CE2006AF5EF /* dropdown_loading_03@2x.png */; };
+		C98FF5F41CC77117006AF5EF /* BlendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5F31CC77117006AF5EF /* BlendedView.m */; };
+		C98FF5F81CC7776B006AF5EF /* GuessLikeNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */; };
+		C98FF5FB1CC7B4AB006AF5EF /* GuessLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -557,8 +560,8 @@
 		C98FF49C1CC66B27006AF5EF /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		C98FF49D1CC66B27006AF5EF /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		C98FF49E1CC66B27006AF5EF /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
-		C98FF4B21CC66B55006AF5EF /* MJChiBaoZiHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiHeader.h; sourceTree = "<group>"; };
-		C98FF4B31CC66B55006AF5EF /* MJChiBaoZiHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJChiBaoZiHeader.m; sourceTree = "<group>"; };
+		C98FF4B21CC66B55006AF5EF /* MJChiBaoZiHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MJChiBaoZiHeader.h; path = ../MJChiBaoZiHeader.h; sourceTree = "<group>"; };
+		C98FF4B31CC66B55006AF5EF /* MJChiBaoZiHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MJChiBaoZiHeader.m; path = ../MJChiBaoZiHeader.m; sourceTree = "<group>"; };
 		C98FF4B81CC66CE2006AF5EF /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C98FF4B91CC66CE2006AF5EF /* dropdown_anim__0001@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_anim__0001@2x.png"; sourceTree = "<group>"; };
 		C98FF4BB1CC66CE2006AF5EF /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
@@ -685,6 +688,12 @@
 		C98FF5701CC66CE2006AF5EF /* dropdown_loading_02@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_loading_02@2x.png"; sourceTree = "<group>"; };
 		C98FF5721CC66CE2006AF5EF /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		C98FF5731CC66CE2006AF5EF /* dropdown_loading_03@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown_loading_03@2x.png"; sourceTree = "<group>"; };
+		C98FF5F21CC77117006AF5EF /* BlendedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlendedView.h; sourceTree = "<group>"; };
+		C98FF5F31CC77117006AF5EF /* BlendedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlendedView.m; sourceTree = "<group>"; };
+		C98FF5F61CC7776B006AF5EF /* GuessLikeNormalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessLikeNormalCell.h; sourceTree = "<group>"; };
+		C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeNormalCell.m; sourceTree = "<group>"; };
+		C98FF5F91CC7B4AA006AF5EF /* GuessLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessLikeCell.h; sourceTree = "<group>"; };
+		C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -754,21 +763,13 @@
 				C917703B1CC4D1E5001EF997 /* Supporting Files */,
 				C91770601CC4D7A7001EF997 /* HomePageViewController.h */,
 				C91770611CC4D7A7001EF997 /* HomePageViewController.m */,
-				C98FF46F1CC65EC3006AF5EF /* FlowView.h */,
-				C98FF4701CC65EC3006AF5EF /* FlowView.m */,
-				C98FF46C1CC6388D006AF5EF /* GridView.h */,
-				C98FF46D1CC6388D006AF5EF /* GridView.m */,
-				C98FF4691CC5503D006AF5EF /* PromotionView.h */,
-				C98FF46A1CC5503D006AF5EF /* PromotionView.m */,
-				C917706F1CC4F197001EF997 /* MultipleChoiceView.h */,
-				C91770701CC4F197001EF997 /* MultipleChoiceView.m */,
-				C917706C1CC4ECCE001EF997 /* MultipleChoiceScrollView.h */,
-				C917706D1CC4ECCE001EF997 /* MultipleChoiceScrollView.m */,
-				C91770661CC4E8B6001EF997 /* MultipleItemCell.h */,
-				C91770671CC4E8B6001EF997 /* MultipleItemCell.m */,
-				C91770761CC4F8DD001EF997 /* multipleChoice.plist */,
-				C98FF4B21CC66B55006AF5EF /* MJChiBaoZiHeader.h */,
-				C98FF4B31CC66B55006AF5EF /* MJChiBaoZiHeader.m */,
+				C98FF5F21CC77117006AF5EF /* BlendedView.h */,
+				C98FF5F31CC77117006AF5EF /* BlendedView.m */,
+				C98FF5F91CC7B4AA006AF5EF /* GuessLikeCell.h */,
+				C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */,
+				C98FF5F61CC7776B006AF5EF /* GuessLikeNormalCell.h */,
+				C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */,
+				C98FF5F51CC7764C006AF5EF /* Section_1 */,
 			);
 			path = Yep;
 			sourceTree = "<group>";
@@ -1123,6 +1124,8 @@
 				C98FF49C1CC66B27006AF5EF /* UIScrollView+MJRefresh.m */,
 				C98FF49D1CC66B27006AF5EF /* UIView+MJExtension.h */,
 				C98FF49E1CC66B27006AF5EF /* UIView+MJExtension.m */,
+				C98FF4B21CC66B55006AF5EF /* MJChiBaoZiHeader.h */,
+				C98FF4B31CC66B55006AF5EF /* MJChiBaoZiHeader.m */,
 			);
 			path = MJRefresh;
 			sourceTree = "<group>";
@@ -1846,6 +1849,26 @@
 			path = dropdown_loading_03.imageset;
 			sourceTree = "<group>";
 		};
+		C98FF5F51CC7764C006AF5EF /* Section_1 */ = {
+			isa = PBXGroup;
+			children = (
+				C917706F1CC4F197001EF997 /* MultipleChoiceView.h */,
+				C91770701CC4F197001EF997 /* MultipleChoiceView.m */,
+				C917706C1CC4ECCE001EF997 /* MultipleChoiceScrollView.h */,
+				C917706D1CC4ECCE001EF997 /* MultipleChoiceScrollView.m */,
+				C91770661CC4E8B6001EF997 /* MultipleItemCell.h */,
+				C91770671CC4E8B6001EF997 /* MultipleItemCell.m */,
+				C91770761CC4F8DD001EF997 /* multipleChoice.plist */,
+				C98FF4691CC5503D006AF5EF /* PromotionView.h */,
+				C98FF46A1CC5503D006AF5EF /* PromotionView.m */,
+				C98FF46C1CC6388D006AF5EF /* GridView.h */,
+				C98FF46D1CC6388D006AF5EF /* GridView.m */,
+				C98FF46F1CC65EC3006AF5EF /* FlowView.h */,
+				C98FF4701CC65EC3006AF5EF /* FlowView.m */,
+			);
+			name = Section_1;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2109,6 +2132,7 @@
 				C98FF4A61CC66B27006AF5EF /* MJRefreshAutoStateFooter.m in Sources */,
 				C917738D1CC520D5001EF997 /* YYTextKeyboardManager.m in Sources */,
 				C91773731CC520D5001EF997 /* UITableView+YYAdd.m in Sources */,
+				C98FF5F41CC77117006AF5EF /* BlendedView.m in Sources */,
 				C917736C1CC520D5001EF997 /* UIControl+YYAdd.m in Sources */,
 				C91773811CC520D5001EF997 /* YYImage.m in Sources */,
 				C917736B1CC520D5001EF997 /* UIColor+YYAdd.m in Sources */,
@@ -2161,6 +2185,7 @@
 				C91773701CC520D5001EF997 /* UIImage+YYAdd.m in Sources */,
 				C98FF4A71CC66B27006AF5EF /* MJRefreshBackGifFooter.m in Sources */,
 				C98FF4AB1CC66B27006AF5EF /* MJRefreshNormalHeader.m in Sources */,
+				C98FF5F81CC7776B006AF5EF /* GuessLikeNormalCell.m in Sources */,
 				C917735B1CC520D5001EF997 /* NSDate+YYAdd.m in Sources */,
 				C98FF4B41CC66B55006AF5EF /* MJChiBaoZiHeader.m in Sources */,
 				C91773681CC520D5001EF997 /* UIApplication+YYAdd.m in Sources */,
@@ -2202,6 +2227,7 @@
 				C91773A41CC520D5001EF997 /* YYThreadSafeArray.m in Sources */,
 				C98FF4AC1CC66B27006AF5EF /* MJRefreshStateHeader.m in Sources */,
 				C98FF46B1CC5503D006AF5EF /* PromotionView.m in Sources */,
+				C98FF5FB1CC7B4AB006AF5EF /* GuessLikeCell.m in Sources */,
 				C917703D1CC4D1E5001EF997 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
