@@ -13,8 +13,7 @@
 #import "GridView.h"
 #import "FlowView.h"
 #import "YYKit.h"
-
-#define kYPTopMargin     10
+#import "YepMacro.h"
 
 @interface BlendedView ()
 
@@ -22,7 +21,7 @@
 @property (nonatomic, strong) PromotionView      *promotionView;
 @property (nonatomic, strong) GridView           *gridView;
 @property (nonatomic, strong) FlowView           *flowView;
-@property (nonatomic, assign) CGFloat            viewHeight;
+@property (nonatomic, assign) CGFloat             viewHeight;
 
 @end
 
@@ -48,15 +47,15 @@
 }
 
 - (void)_initPromotionView {
-    _promotionView = [[PromotionView alloc] initWithFrame:CGRectMake(0, _multipleView.bottom + kYPTopMargin, 0, 0)];
+    _promotionView = [[PromotionView alloc] initWithFrame:CGRectMake(0, _multipleView.bottom + kYPMargin, 0, 0)];
     _promotionView.titleLabel.text = @"煲宫锅物料理";
-    _promotionView.priceLabel.text = @"$ 65";
+    _promotionView.priceLabel.text = @"￥ 65";
     _promotionView.countDownLabel.text = @"距离结束 ";
     [self addSubview:_promotionView];
 }
 
 - (void)_initGridView {
-    _gridView = [[GridView alloc] initWithFrame:CGRectMake(0, _promotionView.bottom + kYPTopMargin, 0, 0)];
+    _gridView = [[GridView alloc] initWithFrame:CGRectMake(0, _promotionView.bottom + kYPMargin, 0, 0)];
     _gridView.topLeftTitleLabel.text = @"8折吃海鲜";
     _gridView.topLeftDescLabel.text = @"领千万红包";
     _gridView.topRightTitleLabel.text = @"抢1000万";
@@ -70,7 +69,7 @@
 }
 
 - (void)_initFlowView {
-    _flowView = [[FlowView alloc] initWithFrame:CGRectMake(0, _gridView.bottom + kYPTopMargin, 0, 0)];
+    _flowView = [[FlowView alloc] initWithFrame:CGRectMake(0, _gridView.bottom + kYPMargin, 0, 0)];
     _flowView.leftTitleLabel.text = @"爱车";
     _flowView.leftDescLabel.text = @"9.9元洗车";
     _flowView.middleTitleLabel.text = @"家装";
@@ -81,7 +80,7 @@
     _flowView.bottomRightDescLabel.text = @"天天秒杀爆款";
     [self addSubview:_flowView];
     
-    _viewHeight += _multipleView.height + _promotionView.height + _gridView.height + _flowView.height + kYPTopMargin * 3;
+    _viewHeight += _multipleView.height + _promotionView.height + _gridView.height + _flowView.height + kYPMargin * 3;
 }
 
 

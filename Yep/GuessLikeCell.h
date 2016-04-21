@@ -11,6 +11,7 @@
 @interface GuessLikeCell : UITableViewCell
 
 @property (nonatomic, strong) UIImageView *cellImageView;
+@property (nonatomic, strong) UIView      *badge;
 @property (nonatomic, strong) UILabel     *titleLabel;
 @property (nonatomic, strong) UILabel     *distanceLabel;
 @property (nonatomic, strong) UILabel     *descLabel;

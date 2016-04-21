@@ -8,6 +8,7 @@
 
 #import "YPTabBarController.h"
 #import "HomePageViewController.h"
+#import "GroupBuyingViewController.h"
 
 @interface YPTabBarController ()
 
@@ -19,9 +20,11 @@
     [super viewDidLoad];
     
     HomePageViewController *homePageVC = [HomePageViewController new];
+    GroupBuyingViewController *groupbuyingVC = [GroupBuyingViewController new];
     
     self.viewControllers = @[
-                             [[UINavigationController alloc] initWithRootViewController:homePageVC]
+                             [[UINavigationController alloc] initWithRootViewController:homePageVC],
+                             [[UINavigationController alloc] initWithRootViewController:groupbuyingVC]
                              ];
     
     NSArray *titles = @[@"首页", @"团购", @"发现", @"我的"];

@@ -12,7 +12,7 @@
 #define kCellHeight             102
 #define kSubViewsPadding        10
 #define kImageViewSize          (kCellHeight - kSubViewsPadding * 2)
-#define kLabelWidth             (kScreenWidth - kSubViewsPadding * 3 - kImageViewSize)
+#define kLabelWidth             (kScreenWidth - kSubViewsPadding * 6 - kImageViewSize)
 #define kLabelHeight            20
 #define kLabelPadding           (kImageViewSize - kLabelHeight * 2 - 10) / 2
 
@@ -36,13 +36,19 @@
     _cellImageView.left = kSubViewsPadding;
     _cellImageView.backgroundColor = [UIColor purpleColor];
     
+    _badge = [UIView new];
+    _badge.size = CGSizeMake(46, 20);
+    _badge.top = 6;
+    _badge.layer.contents = (__bridge id)[UIImage imageWithColor:[UIColor blackColor]].CGImage;
+//    _badge.layer.contents = (__bridge id)([UIImage imageNamed:@"no_reservation"].CGImage);
+    [_cellImageView addSubview:_badge];
+    
     _descLabel = [UILabel new];
-    _descLabel.size = CGSizeMake(kLabelWidth, kLabelHeight);
+    _descLabel.size = CGSizeMake(kLabelWidth, kLabelHeight + 10);
     _descLabel.userInteractionEnabled = NO;
     _descLabel.font = [UIFont systemFontOfSize:12];
     _descLabel.textColor = [UIColor darkGrayColor];
-    _descLabel.numberOfLines = 0;
-    _descLabel.preferredMaxLayoutWidth = kLabelWidth;
+    _descLabel.numberOfLines = 2;
     _descLabel.left = _cellImageView.right + kSubViewsPadding;
     _descLabel.centerY = _cellImageView.centerY - 4;
     
@@ -64,7 +70,7 @@
     _priceLabel = [UILabel new];
     _priceLabel.size = CGSizeMake(_titleLabel.width, kLabelHeight);
     _priceLabel.userInteractionEnabled = NO;
-    _priceLabel.font = [UIFont systemFontOfSize:16];
+    _priceLabel.font = [UIFont systemFontOfSize:18];
     _priceLabel.textColor = [UIColor orangeColor];
     _priceLabel.top = _descLabel.bottom + 4;
     _priceLabel.left = _descLabel.left;

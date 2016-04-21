@@ -11,6 +11,6 @@
 @interface MultipleItemCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *descImageView;
-@property (nonatomic, strong) UILabel *descLabel;
+@property (nonatomic, strong) UILabel     *descLabel;
 
 @end

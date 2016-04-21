@@ -8,6 +8,7 @@
 
 #import "FlowView.h"
 #import "YYKit.h"
+#import "YepMacro.h"
 
 #define kFlowItemPadding     10
 #define kBtnSubViewsPadding  10
@@ -23,9 +24,7 @@
 #define kBtnImgViewSize2     ((kFlowItemWidth) - kBtnSubViewsPadding * 6)
 #define kBtnLabelHeight      20
 
-#define kYPLineColor              [UIColor colorWithWhite:0.000 alpha:0.15].CGColor
 #define kBtnNormalColor           UIColorHex(f7f7f7)
-#define kBtnHighlightColor        UIColorHex(f0f0f0)
 #define kBtnDescLabelTextColor    [UIColor darkGrayColor]
 
 @interface FlowView ()
@@ -74,21 +73,21 @@
     _leftBtn.exclusiveTouch = YES;
     _leftBtn.size = CGSizeMake(kFlowItemWidth, kInnerViewHeight);
     [_leftBtn setBackgroundImage:[UIImage imageWithColor:kBtnNormalColor] forState:UIControlStateNormal];
-    [_leftBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_leftBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _middleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _middleBtn.exclusiveTouch = YES;
     _middleBtn.size = CGSizeMake(kFlowItemWidth, kInnerViewHeight);
     _middleBtn.left = _leftBtn.right + kseparatorLineWH;
     [_middleBtn setBackgroundImage:[UIImage imageWithColor:kBtnNormalColor] forState:UIControlStateNormal];
-    [_middleBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_middleBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _topRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _topRightBtn.exclusiveTouch = YES;
     _topRightBtn.size = CGSizeMake(kFlowItemWidth, kFlowItemHeight);
     _topRightBtn.left = _middleBtn.right + kseparatorLineWH;
     [_topRightBtn setBackgroundImage:[UIImage imageWithColor:kBtnNormalColor] forState:UIControlStateNormal];
-    [_topRightBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_topRightBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _bottomRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _bottomRightBtn.exclusiveTouch = YES;
@@ -96,7 +95,7 @@
     _bottomRightBtn.top = _topRightBtn.bottom + kseparatorLineWH;
     _bottomRightBtn.left = _topRightBtn.left;
     [_bottomRightBtn setBackgroundImage:[UIImage imageWithColor:kBtnNormalColor] forState:UIControlStateNormal];
-    [_bottomRightBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_bottomRightBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     [_innerView addSubview:_leftBtn];
     [_innerView addSubview:_middleBtn];

@@ -101,6 +101,7 @@
 		C91773A61CC520D5001EF997 /* YYTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = C91773521CC520D4001EF997 /* YYTimer.m */; };
 		C91773A71CC520D5001EF997 /* YYTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = C91773541CC520D4001EF997 /* YYTransaction.m */; };
 		C91773A81CC520D5001EF997 /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = C91773561CC520D4001EF997 /* YYWeakProxy.m */; };
+		C9377F2F1CC8F2AD00295C78 /* NormalCategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9377F2E1CC8F2AD00295C78 /* NormalCategoryView.m */; };
 		C98FF42B1CC52517006AF5EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98FF42A1CC52517006AF5EF /* UIKit.framework */; };
 		C98FF42D1CC5251D006AF5EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98FF42C1CC5251D006AF5EF /* Foundation.framework */; };
 		C98FF42F1CC52521006AF5EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98FF42E1CC52521006AF5EF /* QuartzCore.framework */; };
@@ -284,6 +285,9 @@
 		C98FF5F41CC77117006AF5EF /* BlendedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5F31CC77117006AF5EF /* BlendedView.m */; };
 		C98FF5F81CC7776B006AF5EF /* GuessLikeNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */; };
 		C98FF5FB1CC7B4AB006AF5EF /* GuessLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */; };
+		C98FF5FE1CC8B9EF006AF5EF /* GroupBuyingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF5FD1CC8B9EF006AF5EF /* GroupBuyingViewController.m */; };
+		C98FF6011CC8BBC0006AF5EF /* CategoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF6001CC8BBC0006AF5EF /* CategoryView.m */; };
+		C98FF6041CC8BE61006AF5EF /* ComprehensiveView.m in Sources */ = {isa = PBXBuildFile; fileRef = C98FF6031CC8BE61006AF5EF /* ComprehensiveView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -485,6 +489,9 @@
 		C91773551CC520D4001EF997 /* YYWeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWeakProxy.h; sourceTree = "<group>"; };
 		C91773561CC520D4001EF997 /* YYWeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWeakProxy.m; sourceTree = "<group>"; };
 		C91773571CC520D4001EF997 /* YYKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKit.h; sourceTree = "<group>"; };
+		C9377F2D1CC8F2AD00295C78 /* NormalCategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalCategoryView.h; sourceTree = "<group>"; };
+		C9377F2E1CC8F2AD00295C78 /* NormalCategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalCategoryView.m; sourceTree = "<group>"; };
+		C9377F301CC8F39200295C78 /* YepMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YepMacro.h; sourceTree = "<group>"; };
 		C98FF42A1CC52517006AF5EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C98FF42C1CC5251D006AF5EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C98FF42E1CC52521006AF5EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -694,6 +701,12 @@
 		C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeNormalCell.m; sourceTree = "<group>"; };
 		C98FF5F91CC7B4AA006AF5EF /* GuessLikeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuessLikeCell.h; sourceTree = "<group>"; };
 		C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuessLikeCell.m; sourceTree = "<group>"; };
+		C98FF5FC1CC8B9EF006AF5EF /* GroupBuyingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupBuyingViewController.h; sourceTree = "<group>"; };
+		C98FF5FD1CC8B9EF006AF5EF /* GroupBuyingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupBuyingViewController.m; sourceTree = "<group>"; };
+		C98FF5FF1CC8BBC0006AF5EF /* CategoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryView.h; sourceTree = "<group>"; };
+		C98FF6001CC8BBC0006AF5EF /* CategoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryView.m; sourceTree = "<group>"; };
+		C98FF6021CC8BE61006AF5EF /* ComprehensiveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComprehensiveView.h; sourceTree = "<group>"; };
+		C98FF6031CC8BE61006AF5EF /* ComprehensiveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComprehensiveView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -760,7 +773,16 @@
 				C91770421CC4D1E5001EF997 /* ViewController.m */,
 				C91770631CC4D8B1001EF997 /* YPTabBarController.h */,
 				C91770641CC4D8B1001EF997 /* YPTabBarController.m */,
+				C9377F301CC8F39200295C78 /* YepMacro.h */,
 				C917703B1CC4D1E5001EF997 /* Supporting Files */,
+				C98FF5FC1CC8B9EF006AF5EF /* GroupBuyingViewController.h */,
+				C98FF5FD1CC8B9EF006AF5EF /* GroupBuyingViewController.m */,
+				C98FF6021CC8BE61006AF5EF /* ComprehensiveView.h */,
+				C98FF6031CC8BE61006AF5EF /* ComprehensiveView.m */,
+				C9377F2D1CC8F2AD00295C78 /* NormalCategoryView.h */,
+				C9377F2E1CC8F2AD00295C78 /* NormalCategoryView.m */,
+				C98FF5FF1CC8BBC0006AF5EF /* CategoryView.h */,
+				C98FF6001CC8BBC0006AF5EF /* CategoryView.m */,
 				C91770601CC4D7A7001EF997 /* HomePageViewController.h */,
 				C91770611CC4D7A7001EF997 /* HomePageViewController.m */,
 				C98FF5F21CC77117006AF5EF /* BlendedView.h */,
@@ -2122,6 +2144,7 @@
 				C91773691CC520D5001EF997 /* UIBarButtonItem+YYAdd.m in Sources */,
 				C917737F1CC520D5001EF997 /* YYAnimatedImageView.m in Sources */,
 				C917739D1CC520D5001EF997 /* YYAsyncLayer.m in Sources */,
+				C9377F2F1CC8F2AD00295C78 /* NormalCategoryView.m in Sources */,
 				C91770621CC4D7A7001EF997 /* HomePageViewController.m in Sources */,
 				C91770431CC4D1E5001EF997 /* ViewController.m in Sources */,
 				C917738F1CC520D5001EF997 /* YYTextLine.m in Sources */,
@@ -2130,6 +2153,7 @@
 				C91773761CC520D5001EF997 /* YYCache.m in Sources */,
 				C98FF4AA1CC66B27006AF5EF /* MJRefreshGifHeader.m in Sources */,
 				C98FF4A61CC66B27006AF5EF /* MJRefreshAutoStateFooter.m in Sources */,
+				C98FF6041CC8BE61006AF5EF /* ComprehensiveView.m in Sources */,
 				C917738D1CC520D5001EF997 /* YYTextKeyboardManager.m in Sources */,
 				C91773731CC520D5001EF997 /* UITableView+YYAdd.m in Sources */,
 				C98FF5F41CC77117006AF5EF /* BlendedView.m in Sources */,
@@ -2143,6 +2167,7 @@
 				C91773881CC520D5001EF997 /* YYClassInfo.m in Sources */,
 				C91773641CC520D5001EF997 /* NSThread+YYAdd.m in Sources */,
 				C91773751CC520D5001EF997 /* UIView+YYAdd.m in Sources */,
+				C98FF5FE1CC8B9EF006AF5EF /* GroupBuyingViewController.m in Sources */,
 				C91773711CC520D5001EF997 /* UIScreen+YYAdd.m in Sources */,
 				C91773741CC520D5001EF997 /* UITextField+YYAdd.m in Sources */,
 				C91770681CC4E8B6001EF997 /* MultipleItemCell.m in Sources */,
@@ -2168,6 +2193,7 @@
 				C91773931CC520D5001EF997 /* NSParagraphStyle+YYText.m in Sources */,
 				C91773631CC520D5001EF997 /* NSString+YYAdd.m in Sources */,
 				C91773A01CC520D5001EF997 /* YYGestureRecognizer.m in Sources */,
+				C98FF6011CC8BBC0006AF5EF /* CategoryView.m in Sources */,
 				C91773971CC520D5001EF997 /* YYTextParser.m in Sources */,
 				C917735C1CC520D5001EF997 /* NSDictionary+YYAdd.m in Sources */,
 				C91773891CC520D5001EF997 /* YYTextContainerView.m in Sources */,

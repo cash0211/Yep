@@ -44,9 +44,10 @@
     _titleLabel.left = _normalImageView.right + kSubViewsPadding;
     
     _descLabel = [UILabel new];
-    _descLabel.size = CGSizeMake(kLabelWidth, kLabelHeight);
+    _descLabel.size = CGSizeMake(kLabelWidth, kLabelHeight + 10);
     _descLabel.userInteractionEnabled = NO;
     _descLabel.font = [UIFont systemFontOfSize:14];
+    _descLabel.numberOfLines = 2;
     _descLabel.top = _titleLabel.bottom + 6;
     _descLabel.left = _titleLabel.left;
     

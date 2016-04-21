@@ -8,6 +8,7 @@
 
 #import "PromotionView.h"
 #import "YYKit.h"
+#import "YepMacro.h"
 
 #define kYPTopMargin     15
 #define kViewHeight      68
@@ -16,8 +17,6 @@
 
 #define kPriceLabelTintColor       UIColorHex(fd8224)
 #define kCountDownLabelTextColor   UIColorHex(b4b4b4)
-#define kBottomLineColor           [UIColor colorWithWhite:0.000 alpha:0.15].CGColor
-#define kViewHighlightColor        UIColorHex(f0f0f0)
 
 @interface PromotionView ()
 
@@ -43,7 +42,7 @@
     
     _topLine = [CALayer layer];
     _topLine.size = CGSizeMake(kScreenWidth, CGFloatFromPixel(1));
-    _topLine.backgroundColor = kBottomLineColor;
+    _topLine.backgroundColor = kYPLineColor;
     
     _promotionImageView = [UIImageView new];
     _promotionImageView.size = CGSizeMake(kImageViewSize, kImageViewSize);
@@ -74,7 +73,7 @@
     _bottomLine = [CALayer layer];
     _bottomLine.size = CGSizeMake(kScreenWidth, CGFloatFromPixel(1));
     _bottomLine.bottom = self.height;
-    _bottomLine.backgroundColor = kBottomLineColor;
+    _bottomLine.backgroundColor = kYPLineColor;
     
     [self addSubview:_promotionImageView];
     [self addSubview:_titleLabel];
@@ -85,7 +84,7 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    self.backgroundColor = kViewHighlightColor;
+    self.backgroundColor = kYPBtnHighlightColor;
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

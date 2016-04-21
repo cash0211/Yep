@@ -1,71 +1,53 @@
 //
-//  HomePageViewController.m
+//  GroupBuyingViewController.m
 //  Yep
 //
-//  Created by cash on 16/4/18.
+//  Created by cash on 16/4/21.
 //  Copyright © 2016年 ___CASH___. All rights reserved.
 //
 
-#import "HomePageViewController.h"
-#import "BlendedView.h"
-#import "GuessLikeNormalCell.h"
+#import "GroupBuyingViewController.h"
 #import "GuessLikeCell.h"
+#import "ComprehensiveView.h"
 #import "YYKit.h"
 #import "MJRefresh.h"
 #import "MJChiBaoZiHeader.h"
 #import "YepMacro.h"
 
-@interface HomePageViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface GroupBuyingViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView        *tableView;
-@property (nonatomic, strong) BlendedView        *blendedView;
-@property (nonatomic, strong) NSMutableArray     *guessLikeItems;
+@property (nonatomic, strong) ComprehensiveView  *comprehensiveView;
 
 @end
 
-@implementation HomePageViewController
+@implementation GroupBuyingViewController
 
 
 #pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-//    }
+
     self.view.backgroundColor = kYPBackgroundColor;
 
     [self _initNavBar];
     [self _initTableView];
-       
-    _guessLikeItems = [NSMutableArray arrayWithCapacity:3];
-    [_guessLikeItems addObject:@"dsds"];
-    [_guessLikeItems addObject:@"dsds"];
-    [_guessLikeItems addObject:@"dsds"];
-    
+    [self _initComprehensiveView];
+
     MJChiBaoZiHeader *header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(_loadNewData)];
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
     header.stateLabel.hidden = YES;
     _tableView.mj_header = header;
     [_tableView.mj_header beginRefreshing];
-    
-    [_tableView registerClass:[GuessLikeNormalCell class] forCellReuseIdentifier:[GuessLikeNormalCell cellId]];
+
     [_tableView registerClass:[GuessLikeCell class] forCellReuseIdentifier:[GuessLikeCell cellId]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    // layout
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -77,6 +59,9 @@
     [super didReceiveMemoryWarning];
 }
 
+- (void)dealloc {
+    
+}
 
 #pragma mark - Event response
 
@@ -93,10 +78,6 @@
     sleep(1.5);
     [_tableView.mj_header endRefreshing];
 }
-
-
-#pragma mark - Public methods
-
 
 
 #pragma mark - Private methods
@@ -127,11 +108,13 @@
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.backgroundView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_tableView];
-    
-    _blendedView = [[BlendedView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    [_tableView addSubview:_blendedView];
 }
 
+- (void)_initComprehensiveView {
+    
+    _comprehensiveView = [[ComprehensiveView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    [_tableView addSubview:_comprehensiveView];
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -143,16 +126,16 @@
     if (0 == section) {
         return 1;
     }
-    return _guessLikeItems.count;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (0 != indexPath.section) {
-//        GuessLikeNormalCell *nomalCell = [_tableView dequeueReusableCellWithIdentifier:[GuessLikeNormalCell cellId]];
-//        nomalCell.titleLabel.text = @"最高领200元！快戳";
-//        nomalCell.descLabel.text = @"洗剪吹、烫染、美甲、美容省省省";
-//        return nomalCell;
+        //        GuessLikeNormalCell *nomalCell = [_tableView dequeueReusableCellWithIdentifier:[GuessLikeNormalCell cellId]];
+        //        nomalCell.titleLabel.text = @"最高领200元！快戳";
+        //        nomalCell.descLabel.text = @"洗剪吹、烫染、美甲、美容省省省";
+        //        return nomalCell;
         GuessLikeCell *cell = [_tableView dequeueReusableCellWithIdentifier:[GuessLikeCell cellId]];
         cell.titleLabel.text = @"团子大家族";
         cell.distanceLabel.text = @"1.0km";
@@ -175,35 +158,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.section) {
-        return _blendedView.height;
+        return _comprehensiveView.height + kYPMargin;
     }
     return 102;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    if (1 == section) {
-        return [NSString stringWithFormat:@"猜你喜欢"];
-    }
-    return nil;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (1 == section) {
-        return 28;
-    }
-    return 0;
-}
-
-#pragma mark - CustomDelegate
-
-
-
-#pragma mark - Getters & Setters
-
-
-
-
 @end
+
 
 
 

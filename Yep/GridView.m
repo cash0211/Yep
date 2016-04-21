@@ -8,6 +8,7 @@
 
 #import "GridView.h"
 #import "YYKit.h"
+#import "YepMacro.h"
 
 #define kViewHeight      142
 #define kGridWidth       kScreenWidth / 2
@@ -18,11 +19,14 @@
 #define kBtnLabelWidth            (kGridWidth) - (kBtnSubViewsPadding * 3) - (kBtnImgViewSize)
 #define kBtnLabelHeight           20
 
-#define kYPLineColor              [UIColor colorWithWhite:0.000 alpha:0.15].CGColor
-#define kBtnHighlightColor        UIColorHex(f0f0f0)
 #define kBtnDescLabelTextColor    UIColorHex(b4b4b4)
 
 @interface GridView ()
+
+@property (nonatomic, strong) CALayer *topLine;
+@property (nonatomic, strong) CALayer *horizontalLine;
+@property (nonatomic, strong) CALayer *verticalLine;
+@property (nonatomic, strong) CALayer *bottomLine;
 
 @end
 
@@ -64,26 +68,26 @@
     _topLeftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _topLeftBtn.exclusiveTouch = YES;
     _topLeftBtn.size = CGSizeMake(kGridWidth, kGridHeight);
-    [_topLeftBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_topLeftBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _topRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _topRightBtn.exclusiveTouch = YES;
     _topRightBtn.size = CGSizeMake(kGridWidth, kGridHeight);
     _topRightBtn.left = _topLeftBtn.right;
-    [_topRightBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_topRightBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _bottomLeftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _bottomLeftBtn.exclusiveTouch = YES;
     _bottomLeftBtn.size = CGSizeMake(kGridWidth, kGridHeight);
     _bottomLeftBtn.top = _topLeftBtn.bottom;
-    [_bottomLeftBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_bottomLeftBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _bottomRightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _bottomRightBtn.exclusiveTouch = YES;
     _bottomRightBtn.size = CGSizeMake(kGridWidth, kGridHeight);
     _bottomRightBtn.top = _topRightBtn.bottom;
     _bottomRightBtn.left = _bottomLeftBtn.right;
-    [_bottomRightBtn setBackgroundImage:[UIImage imageWithColor:kBtnHighlightColor] forState:UIControlStateHighlighted];
+    [_bottomRightBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
     _topLeftImageView = [UIImageView new];
     _topLeftImageView.size = CGSizeMake(kBtnImgViewSize, kBtnImgViewSize);
