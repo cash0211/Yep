@@ -14,6 +14,7 @@
 #import "FlowView.h"
 #import "YYKit.h"
 #import "YepMacro.h"
+#import "YPHelper.h"
 
 @interface BlendedView ()
 
@@ -56,12 +57,16 @@
 
 - (void)_initGridView {
     _gridView = [[GridView alloc] initWithFrame:CGRectMake(0, _promotionView.bottom + kYPMargin, 0, 0)];
+    _gridView.topLeftImageView.image = [YPHelper imageNamed:@"findhome_haixian"];
     _gridView.topLeftTitleLabel.text = @"8折吃海鲜";
     _gridView.topLeftDescLabel.text = @"领千万红包";
+    _gridView.topRightImageView.image = [YPHelper imageNamed:@"findhome_hongbao"];
     _gridView.topRightTitleLabel.text = @"抢1000万";
     _gridView.topRightDescLabel.text = @"红包大放送";
+    _gridView.bottomLeftImageView.image = [YPHelper imageNamed:@"findhome_dapian"];
     _gridView.bottomLeftTitleLabel.text = @"特价看大片";
     _gridView.bottomLeftDescLabel.text = @"4月超口碑";
+    _gridView.bottomRightImageView.image = [YPHelper imageNamed:@"findhome_guanzi"];
     _gridView.bottomRightTitleLabel.text = @"老字号馆子";
     _gridView.bottomRightDescLabel.text = @"地道够美味";
     

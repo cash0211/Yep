@@ -5,103 +5,103 @@
 	<array>
 		<array>
 			<string>足疗按摩</string>
-			<string>masaji.png</string>
+			<string>findhome_footer</string>
 		</array>
 		<array>
 			<string>看演出</string>
-			<string>show.png</string>
+			<string>findhome_yanchu</string>
 		</array>
 		<array>
 			<string>周边游</string>
-			<string>around.png</string>
+			<string>findhome_zhoubianyou</string>
 		</array>
 		<array>
 			<string>会员卡</string>
-			<string>vip.png</string>
+			<string>findhome_vip</string>
 		</array>
 		<array>
 			<string>购物商场</string>
-			<string>market.png</string>
+			<string>findhome_bangdan_green</string>
 		</array>
 		<array>
 			<string>拍婚照</string>
-			<string>marry.png</string>
+			<string>findhome_marryphoto</string>
 		</array>
 		<array>
 			<string>全部分类</string>
-			<string>allCategory.png</string>
+			<string>findhome_more</string>
 		</array>
 		<array>
 			<string>爱车</string>
-			<string>car.png</string>
+			<string>findhome_car</string>
 		</array>
 	</array>
 	<array>
 		<array>
 			<string>美食</string>
-			<string>01.png</string>
+			<string>findhome_food</string>
 		</array>
 		<array>
 			<string>团购闪惠</string>
-			<string>groupbuy.png</string>
+			<string>findhome_grouponshan</string>
 		</array>
 		<array>
 			<string>看电影</string>
-			<string>movie.png</string>
+			<string>findhome_movie</string>
 		</array>
 		<array>
 			<string>KTV</string>
-			<string>ktv.png</string>
+			<string>findhome_ktv</string>
 		</array>
 		<array>
 			<string>小吃快餐</string>
-			<string>fastfood.png</string>
+			<string>findhome_snack</string>
 		</array>
 		<array>
 			<string>订外卖</string>
-			<string>takeout.png</string>
+			<string>findhome_takeaway</string>
 		</array>
 		<array>
 			<string>休闲娱乐</string>
-			<string>masaji.png</string>
+			<string>findhome_relax</string>
 		</array>
 		<array>
 			<string>订酒店</string>
-			<string>hotel.png</string>
+			<string>findhome_hotel</string>
 		</array>
 	</array>
 	<array>
 		<array>
 			<string>丽人</string>
-			<string>2.png</string>
+			<string>findhome_hotgirl</string>
 		</array>
 		<array>
 			<string>订座</string>
-			<string>reservation.png</string>
+			<string>findhome_coffee</string>
 		</array>
 		<array>
 			<string>亲子</string>
-			<string>son.png</string>
+			<string>findhome_baby</string>
 		</array>
 		<array>
 			<string>找优惠</string>
-			<string>coupon.png</string>
+			<string>findhome_discount</string>
 		</array>
 		<array>
 			<string>结婚</string>
-			<string>marry.png</string>
+			<string>findhome_imarry</string>
 		</array>
 		<array>
 			<string>有料</string>
-			<string>8.png</string>
+			<string>findhome_buffet</string>
 		</array>
 		<array>
 			<string>家装</string>
-			<string>7.png</string>
+			<string>findhome_jiazhuang</string>
 		</array>
 		<array>
 			<string>写点评</string>
-			<string>comment.png</string>
+			<string>findhome_booking</string>
 		</array>
 	</array>
 </array>

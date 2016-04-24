@@ -10,24 +10,24 @@
 
 @interface CategoryView : UIView
 
-@property (nonatomic, strong) UIButton    *yummyFoodBtn;
-@property (nonatomic, strong) UIButton    *hotGirlBtn;
-@property (nonatomic, strong) UIButton    *footMaSaJiBtn;
-@property (nonatomic, strong) UIButton    *allCategoryBtn;
-@property (nonatomic, strong) UIButton    *hotelBtn;
-@property (nonatomic, strong) UIButton    *placeHolderBtn;
+@property (nonatomic, strong) UIButton    *leftBtn;
+@property (nonatomic, strong) UIButton    *middleBtn;
+@property (nonatomic, strong) UIButton    *rightBtn;
+@property (nonatomic, strong) UIButton    *leftBtn2;
+@property (nonatomic, strong) UIButton    *middleBtn2;
+@property (nonatomic, strong) UIButton    *rightBtn2;
 
-@property (nonatomic, strong) UIImageView *yummyFoodImageView;
-@property (nonatomic, strong) UIImageView *hotGirlImageView;
-@property (nonatomic, strong) UIImageView *footMaSaJiImageView;
-@property (nonatomic, strong) UIImageView *allCategoryImageView;
-@property (nonatomic, strong) UIImageView *hotelImageView;
+@property (nonatomic, strong) UIImageView *leftImageView;
+@property (nonatomic, strong) UIImageView *middleImageView;
+@property (nonatomic, strong) UIImageView *rightImageView;
+@property (nonatomic, strong) UIImageView *leftImageView2;
+@property (nonatomic, strong) UIImageView *middleImageView2;
 
-@property (nonatomic, strong) UILabel     *yummyFoodLabel;
-@property (nonatomic, strong) UILabel     *hotGirlLabel;
-@property (nonatomic, strong) UILabel     *footMaSaJiLabel;
-@property (nonatomic, strong) UILabel     *allCategoryLabel;
-@property (nonatomic, strong) UILabel     *hotelLabel;
+@property (nonatomic, strong) UILabel     *leftLabel;
+@property (nonatomic, strong) UILabel     *middleLabel;
+@property (nonatomic, strong) UILabel     *rightLabel;
+@property (nonatomic, strong) UILabel     *leftLabel2;
+@property (nonatomic, strong) UILabel     *middleLabel2;
 
 @end
 

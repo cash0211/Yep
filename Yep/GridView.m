@@ -93,25 +93,21 @@
     _topLeftImageView.size = CGSizeMake(kBtnImgViewSize, kBtnImgViewSize);
     _topLeftImageView.top = kBtnSubViewsPadding;
     _topLeftImageView.right = kGridWidth - kBtnSubViewsPadding;
-    _topLeftImageView.backgroundColor = [UIColor purpleColor];
     
     _topRightImageView = [UIImageView new];
     _topRightImageView.size = CGSizeMake(kBtnImgViewSize, kBtnImgViewSize);
     _topRightImageView.top = kBtnSubViewsPadding;
     _topRightImageView.right = kGridWidth - kBtnSubViewsPadding;
-    _topRightImageView.backgroundColor = [UIColor purpleColor];
     
     _bottomLeftImageView = [UIImageView new];
     _bottomLeftImageView.size = CGSizeMake(kBtnImgViewSize, kBtnImgViewSize);
     _bottomLeftImageView.top = kBtnSubViewsPadding;
     _bottomLeftImageView.right = kGridWidth - kBtnSubViewsPadding;
-    _bottomLeftImageView.backgroundColor = [UIColor purpleColor];
     
     _bottomRightImageView = [UIImageView new];
     _bottomRightImageView.size = CGSizeMake(kBtnImgViewSize, kBtnImgViewSize);
     _bottomRightImageView.top = kBtnSubViewsPadding;
     _bottomRightImageView.right = kGridWidth - kBtnSubViewsPadding;
-    _bottomRightImageView.backgroundColor = [UIColor purpleColor];
     
     [_topLeftBtn addSubview:_topLeftImageView];
     [_topRightBtn addSubview:_topRightImageView];

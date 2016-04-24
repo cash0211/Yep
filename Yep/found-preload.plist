@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array/>
+	<array>
+		<array>
+			<string>found_icon_sns</string>
+			<string>社区论坛</string>
+			<string>50元电影票派送中</string>
+		</array>
+		<array>
+			<string>found_icon_entertainment</string>
+			<string>影视娱乐</string>
+			<string>古装第一男神竟然是他</string>
+		</array>
+	</array>
+	<array>
+		<array>
+			<string>found_icon_ranklist</string>
+			<string>排行榜</string>
+			<string>人气爆棚的年度餐厅</string>
+		</array>
+		<array>
+			<string>found_icon_bawangcan</string>
+			<string>霸王餐</string>
+			<string>0元吃大餐全名疯抢</string>
+		</array>
+	</array>
+</array>
+</plist>

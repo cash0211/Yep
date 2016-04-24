@@ -11,6 +11,7 @@
 #import "NormalCategoryView.h"
 #import "YYKit.h"
 #import "YepMacro.h"
+#import "YPHelper.h"
 
 @interface ComprehensiveView ()
 
@@ -29,18 +30,28 @@
     }
     self.backgroundColor = kYPBackgroundColor;
     [self _initSubViews];
+    [self _initData];
     self.size = CGSizeMake(kScreenWidth, _viewHeight);
     return self;
+}
+
+- (void)_initData {
+    NSArray *arr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"groupbuying-preload" ofType:@"plist"]];
+    _categoryView.leftImageView.image = [YPHelper imageNamed:arr[0][0]];
+    _categoryView.leftLabel.text = arr[0][1];
+    _categoryView.middleImageView.image = [YPHelper imageNamed:arr[1][0]];
+    _categoryView.middleLabel.text = arr[1][1];
+    _categoryView.rightImageView.image = [YPHelper imageNamed:arr[2][0]];
+    _categoryView.rightLabel.text = arr[2][1];
+    _categoryView.leftImageView2.image = [YPHelper imageNamed:arr[3][0]];
+    _categoryView.leftLabel2.text = arr[3][1];
+    _categoryView.middleImageView2.image = [YPHelper imageNamed:arr[4][0]];
+    _categoryView.middleLabel2.text = arr[4][1];
 }
 
 - (void)_initSubViews {
     
     _categoryView = [[CategoryView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    _categoryView.yummyFoodLabel.text   = @"美食";
-    _categoryView.footMaSaJiLabel.text  = @"足疗";
-    _categoryView.hotelLabel.text       = @"酒店";
-    _categoryView.hotGirlLabel.text     = @"丽人";
-    _categoryView.allCategoryLabel.text = @"全部";
     
     _normalCategoryView = [[NormalCategoryView alloc] initWithFrame:CGRectMake(0, _categoryView.bottom + kYPMargin, 0, 0)];
     _normalCategoryView.leftTitleLabel.text   = @"我们约会吧";

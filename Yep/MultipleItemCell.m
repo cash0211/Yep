@@ -37,7 +37,6 @@
 
 - (void)updateLayout {
     _descImageView.center = CGPointMake(self.width / 2, self.height / 2);
-    _descImageView.backgroundColor = [UIColor purpleColor];
     _descLabel.top = _descImageView.bottom + 3;
     _descLabel.left = _descImageView.left;
     _descLabel.size = CGSizeMake(_descImageView.width, 20);

@@ -8,7 +8,8 @@
 
 #import "AppDelegate.h"
 #import "YPTabBarController.h"
-
+#import "YYKit.h"
+#import "YepMacro.h"
 
 @interface AppDelegate ()
 
@@ -25,6 +26,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = ypTabBarC;
     [self.window makeKeyAndVisible];
+    
+    [self _customizeAppearance];
     
     return YES;
 }
@@ -51,4 +54,21 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)_customizeAppearance {
+    
+    [[UITabBar appearance] setTintColor:[UIColor orangeColor]];
+    [[UITabBar appearance] setBarTintColor:kYPBackgroundColor];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateSelected];
+    
+    [UISearchBar appearance].tintColor =  UIColorHex(0x15A230);
+}
+
+
 @end
+
+
+
+
+
+
+

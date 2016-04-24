@@ -8,6 +8,7 @@
 
 #import "GuessLikeCell.h"
 #import "YYKit.h"
+#import "YPHelper.h"
 
 #define kCellHeight             102
 #define kSubViewsPadding        10
@@ -39,8 +40,7 @@
     _badge = [UIView new];
     _badge.size = CGSizeMake(46, 20);
     _badge.top = 6;
-    _badge.layer.contents = (__bridge id)[UIImage imageWithColor:[UIColor blackColor]].CGImage;
-//    _badge.layer.contents = (__bridge id)([UIImage imageNamed:@"no_reservation"].CGImage);
+    _badge.layer.contents = (__bridge id)[YPHelper imageNamed:@"deal_list_label_reservation"].CGImage;
     [_cellImageView addSubview:_badge];
     
     _descLabel = [UILabel new];
@@ -79,6 +79,7 @@
     _soldLabel.size = CGSizeMake(_distanceLabel.width * 2, _priceLabel.height);
     _soldLabel.userInteractionEnabled = NO;
     _soldLabel.font = [UIFont systemFontOfSize:10];
+    _soldLabel.textAlignment = NSTextAlignmentRight;
     _soldLabel.textColor = [UIColor grayColor];
     _soldLabel.right = _distanceLabel.right;
     _soldLabel.bottom = _priceLabel.bottom;

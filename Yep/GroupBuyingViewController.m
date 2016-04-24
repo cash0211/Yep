@@ -89,13 +89,7 @@
     UIBarButtonItem *downItem = [[UIBarButtonItem alloc] initWithCustomView:downArrow];
     self.navigationItem.leftBarButtonItems = @[leftItem, downItem];
     
-    UIButton *envelopBtn = [UIButton new];
-    [envelopBtn addTarget:self action:@selector(_next) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:envelopBtn];
-    self.navigationItem.rightBarButtonItem = rightItem;
-    
     // searchBar
-    
 }
 
 - (void)_initTableView {
@@ -132,11 +126,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (0 != indexPath.section) {
-        //        GuessLikeNormalCell *nomalCell = [_tableView dequeueReusableCellWithIdentifier:[GuessLikeNormalCell cellId]];
-        //        nomalCell.titleLabel.text = @"最高领200元！快戳";
-        //        nomalCell.descLabel.text = @"洗剪吹、烫染、美甲、美容省省省";
-        //        return nomalCell;
-        GuessLikeCell *cell = [_tableView dequeueReusableCellWithIdentifier:[GuessLikeCell cellId]];
+        GuessLikeCell *cell = [_tableView dequeueReusableCellWithIdentifier:[GuessLikeCell cellId] forIndexPath:indexPath];
         cell.titleLabel.text = @"团子大家族";
         cell.distanceLabel.text = @"1.0km";
         cell.descLabel.text = @"[开发区 托乐嘉花园] 低至6.6折 甜甜圈套餐一份 建议1-2人使用，提供免费WiFi balabala";

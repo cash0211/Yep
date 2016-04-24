@@ -7,13 +7,16 @@
 //
 
 #import "PromotionView.h"
+#import "BlendedView.h"
 #import "YYKit.h"
 #import "YepMacro.h"
+#import "YPHelper.h"
 
 #define kYPTopMargin     15
 #define kViewHeight      68
 #define kYPCellPadding   15
-#define kImageViewSize   kViewHeight - kYPTopMargin * 2
+
+#define kImageViewWidth  65
 
 #define kPriceLabelTintColor       UIColorHex(fd8224)
 #define kCountDownLabelTextColor   UIColorHex(b4b4b4)
@@ -45,16 +48,16 @@
     _topLine.backgroundColor = kYPLineColor;
     
     _promotionImageView = [UIImageView new];
-    _promotionImageView.size = CGSizeMake(kImageViewSize, kImageViewSize);
-    _promotionImageView.backgroundColor = [UIColor purpleColor];
-    _promotionImageView.top = kYPTopMargin;
-    _promotionImageView.left = kYPCellPadding;
+    _promotionImageView.size = CGSizeMake(kImageViewWidth, 56);
+    _promotionImageView.image = [YPHelper imageNamed:@"brand_buy_logo"];
+    _promotionImageView.left = kYPMargin;
+    _promotionImageView.centerY = kViewHeight / 2;
     
     _titleLabel = [UILabel new];
     _titleLabel.size = CGSizeMake(100, 20);
     _titleLabel.font = [UIFont systemFontOfSize:15];
-    _titleLabel.top = _promotionImageView.top;
-    _titleLabel.left = _promotionImageView.right + kYPCellPadding;
+    _titleLabel.top = _promotionImageView.top + 6;
+    _titleLabel.left = _promotionImageView.right + 8;
     
     _priceLabel = [UILabel new];
     _priceLabel.size = CGSizeMake(100, 20);

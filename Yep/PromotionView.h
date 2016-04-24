@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class BlendedView;
+
 @interface PromotionView : UIView
 
 @property (nonatomic, strong) UIImageView *promotionImageView;
@@ -15,5 +17,6 @@
 @property (nonatomic, strong) UILabel     *priceLabel;
 @property (nonatomic, strong) UILabel     *countDownLabel;
 @property (nonatomic, strong) CALayer     *indicatorArrow;
+@property (nonatomic, weak)   BlendedView *blendedView;
 
 @end

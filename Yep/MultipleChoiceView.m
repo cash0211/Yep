@@ -13,6 +13,7 @@
 #import "UIView+YYAdd.h"
 #import "CALayer+YYAdd.h"
 #import "UIColor+YYAdd.h"
+#import "YPHelper.h"
 
 #define kOnePageCount          8
 #define kItemHeight            50
@@ -111,7 +112,7 @@
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     NSArray *array = _multipleItems[section][row];
-    cell.descImageView.image = [UIImage imageNamed:array[1]];
+    cell.descImageView.image = [YPHelper imageNamed:array[1]];
     cell.descLabel.text = array[0];
 }
 

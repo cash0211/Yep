@@ -9,6 +9,7 @@
 #import "CategoryView.h"
 #import "YYKit.h"
 #import "YepMacro.h"
+#import "YPHelper.h"
 
 #define kViewHeight                   105
 #define kCategoryItemWidth            CGFloatPixelRound(kScreenWidth / 3)
@@ -67,145 +68,140 @@
     _horizontalLine.top = kCategoryItemHeight;
     _horizontalLine.backgroundColor = kYPLineColor;
     
-    _yummyFoodBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _yummyFoodBtn.exclusiveTouch = YES;
-    _yummyFoodBtn.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
-    [_yummyFoodBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
+    _leftBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _leftBtn.exclusiveTouch = YES;
+    _leftBtn.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
+    [_leftBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
-    _footMaSaJiBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _footMaSaJiBtn.exclusiveTouch = YES;
-    _footMaSaJiBtn.size = CGSizeMake(kCategoryItemWidth - 0.5, kCategoryItemHeight);
-    _footMaSaJiBtn.left = _yummyFoodBtn.right + 0.5;
-    [_footMaSaJiBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
+    _middleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _middleBtn.exclusiveTouch = YES;
+    _middleBtn.size = CGSizeMake(kCategoryItemWidth - 0.5, kCategoryItemHeight);
+    _middleBtn.left = _leftBtn.right + 0.5;
+    [_middleBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
-    _hotelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _hotelBtn.exclusiveTouch = YES;
-    _hotelBtn.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
-    _hotelBtn.left = _footMaSaJiBtn.right + 0.5;
-    [_hotelBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
+    _rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rightBtn.exclusiveTouch = YES;
+    _rightBtn.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
+    _rightBtn.left = _middleBtn.right + 0.5;
+    [_rightBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
-    _hotGirlBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _hotGirlBtn.exclusiveTouch = YES;
-    _hotGirlBtn.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
-    _hotGirlBtn.top = _yummyFoodBtn.bottom + 0.5;
-    [_hotGirlBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
+    _leftBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _leftBtn2.exclusiveTouch = YES;
+    _leftBtn2.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
+    _leftBtn2.top = _leftBtn.bottom + 0.5;
+    [_leftBtn2 setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
-    _allCategoryBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _allCategoryBtn.exclusiveTouch = YES;
-    _allCategoryBtn.size = CGSizeMake(_footMaSaJiBtn.width, kCategoryItemHeight);
-    _allCategoryBtn.top = _hotGirlBtn.top;
-    _allCategoryBtn.left = _footMaSaJiBtn.left;
-    [_allCategoryBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
+    _middleBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _middleBtn2.exclusiveTouch = YES;
+    _middleBtn2.size = CGSizeMake(_middleBtn.width, kCategoryItemHeight);
+    _middleBtn2.top = _leftBtn2.top;
+    _middleBtn2.left = _middleBtn.left;
+    [_middleBtn2 setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
-    _placeHolderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    _placeHolderBtn.exclusiveTouch = YES;
-    _placeHolderBtn.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
-    _placeHolderBtn.top = _hotGirlBtn.top;
-    _placeHolderBtn.left = _hotelBtn.left;
-    [_placeHolderBtn setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
+    _rightBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _rightBtn2.exclusiveTouch = YES;
+    _rightBtn2.size = CGSizeMake(kCategoryItemWidth, kCategoryItemHeight);
+    _rightBtn2.top = _leftBtn2.top;
+    _rightBtn2.left = _rightBtn.left;
+    [_rightBtn2 setBackgroundImage:[UIImage imageWithColor:kYPBtnHighlightColor] forState:UIControlStateHighlighted];
     
-    CGPoint imageViewCenter = [self convertPoint:_yummyFoodBtn.center toView:_yummyFoodBtn];
+    CGPoint imageViewCenter = [self convertPoint:_leftBtn.center toView:_leftBtn];
     imageViewCenter.x -= 18;
-    _yummyFoodImageView = [UIImageView new];
-    _yummyFoodImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
-    _yummyFoodImageView.center = imageViewCenter;
-    _yummyFoodImageView.backgroundColor = [UIColor purpleColor];
+    _leftImageView = [UIImageView new];
+    _leftImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
+    _leftImageView.center = imageViewCenter;
     
-    _footMaSaJiImageView = [UIImageView new];
-    _footMaSaJiImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
-    _footMaSaJiImageView.center = imageViewCenter;
-    _footMaSaJiImageView.backgroundColor = [UIColor purpleColor];
+    _middleImageView = [UIImageView new];
+    _middleImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
+    _middleImageView.center = imageViewCenter;
     
-    _hotelImageView = [UIImageView new];
-    _hotelImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
-    _hotelImageView.center = imageViewCenter;
-    _hotelImageView.backgroundColor = [UIColor purpleColor];
+    _rightImageView = [UIImageView new];
+    _rightImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
+    _rightImageView.center = imageViewCenter;
     
-    _hotGirlImageView = [UIImageView new];
-    _hotGirlImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
-    _hotGirlImageView.center = imageViewCenter;
-    _hotGirlImageView.backgroundColor = [UIColor purpleColor];
+    _leftImageView2 = [UIImageView new];
+    _leftImageView2.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
+    _leftImageView2.center = imageViewCenter;
+    
+    _middleImageView2 = [UIImageView new];
+    _middleImageView2.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
+    _middleImageView2.center = imageViewCenter;
+    
+    [_leftBtn addSubview:_leftImageView];
+    [_middleBtn addSubview:_middleImageView];
+    [_rightBtn addSubview:_rightImageView];
+    [_leftBtn2 addSubview:_leftImageView2];
+    [_middleBtn2 addSubview:_middleImageView2];
+    
+    _leftLabel = [UILabel new];
+    _leftLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
+    _leftLabel.userInteractionEnabled = NO;
+    _leftLabel.font = [UIFont systemFontOfSize:16];
+    _leftLabel.left = _leftImageView.right + 6;
+    _leftLabel.bottom = _leftImageView.bottom;
+    
+    _middleLabel = [UILabel new];
+    _middleLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
+    _middleLabel.userInteractionEnabled = NO;
+    _middleLabel.left = _middleImageView.right + 6;
+    _middleLabel.bottom = _middleImageView.bottom;
 
-    _allCategoryImageView = [UIImageView new];
-    _allCategoryImageView.size = CGSizeMake(kCategoryItemSubViewsSize, kCategoryItemSubViewsSize);
-    _allCategoryImageView.center = imageViewCenter;
-    _allCategoryImageView.backgroundColor = [UIColor purpleColor];
-    
-    [_yummyFoodBtn addSubview:_yummyFoodImageView];
-    [_footMaSaJiBtn addSubview:_footMaSaJiImageView];
-    [_hotelBtn addSubview:_hotelImageView];
-    [_hotGirlBtn addSubview:_hotGirlImageView];
-    [_allCategoryBtn addSubview:_allCategoryImageView];
-    
-    _yummyFoodLabel = [UILabel new];
-    _yummyFoodLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
-    _yummyFoodLabel.userInteractionEnabled = NO;
-    _yummyFoodLabel.font = [UIFont systemFontOfSize:16];
-    _yummyFoodLabel.left = _yummyFoodImageView.right + 6;
-    _yummyFoodLabel.bottom = _yummyFoodImageView.bottom;
-    
-    _footMaSaJiLabel = [UILabel new];
-    _footMaSaJiLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
-    _footMaSaJiLabel.userInteractionEnabled = NO;
-    _footMaSaJiLabel.left = _footMaSaJiImageView.right + 6;
-    _footMaSaJiLabel.bottom = _footMaSaJiImageView.bottom;
+    _rightLabel = [UILabel new];
+    _rightLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
+    _rightLabel.userInteractionEnabled = NO;
+    _rightLabel.font = [UIFont systemFontOfSize:16];
+    _rightLabel.left = _middleImageView.right + 6;
+    _rightLabel.bottom = _middleImageView.bottom;
 
-    _hotelLabel = [UILabel new];
-    _hotelLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
-    _hotelLabel.userInteractionEnabled = NO;
-    _hotelLabel.font = [UIFont systemFontOfSize:16];
-    _hotelLabel.left = _hotelImageView.right + 6;
-    _hotelLabel.bottom = _hotelImageView.bottom;
-
-    _hotGirlLabel = [UILabel new];
-    _hotGirlLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
-    _hotGirlLabel.userInteractionEnabled = NO;
-    _hotGirlLabel.font = [UIFont systemFontOfSize:16];
-    _hotGirlLabel.left = _hotGirlImageView.right + 6;
-    _hotGirlLabel.bottom = _hotGirlImageView.bottom;
+    _leftLabel2 = [UILabel new];
+    _leftLabel2.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
+    _leftLabel2.userInteractionEnabled = NO;
+    _leftLabel2.font = [UIFont systemFontOfSize:16];
+    _leftLabel2.left = _leftImageView2.right + 6;
+    _leftLabel2.bottom = _leftImageView2.bottom;
     
-    _allCategoryLabel = [UILabel new];
-    _allCategoryLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
-    _allCategoryLabel.userInteractionEnabled = NO;
-    _allCategoryLabel.font = [UIFont systemFontOfSize:16];
-    _allCategoryLabel.left = _allCategoryImageView.right + 6;
-    _allCategoryLabel.bottom = _allCategoryImageView.bottom;
+    _middleLabel2 = [UILabel new];
+    _middleLabel2.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
+    _middleLabel2.userInteractionEnabled = NO;
+    _middleLabel2.font = [UIFont systemFontOfSize:16];
+    _middleLabel2.left = _middleImageView2.right + 6;
+    _middleLabel2.bottom = _middleImageView2.bottom;
 
-    [_yummyFoodBtn addSubview:_yummyFoodLabel];
-    [_footMaSaJiBtn addSubview:_footMaSaJiLabel];
-    [_hotelBtn addSubview:_hotelLabel];
-    [_hotGirlBtn addSubview:_hotGirlLabel];
-    [_allCategoryBtn addSubview:_allCategoryLabel];
+    [_leftBtn addSubview:_leftLabel];
+    [_middleBtn addSubview:_middleLabel];
+    [_rightBtn addSubview:_rightLabel];
+    [_leftBtn2 addSubview:_leftLabel2];
+    [_middleBtn2 addSubview:_middleLabel2];
     
     [self.layer addSublayer:_topLine];
     [self.layer addSublayer:_bottomLine];
     [self.layer addSublayer:_verticalLine1];
     [self.layer addSublayer:_verticalLine2];
     [self.layer addSublayer:_horizontalLine];
-    [self addSubview:_yummyFoodBtn];
-    [self addSubview:_footMaSaJiBtn];
-    [self addSubview:_hotelBtn];
-    [self addSubview:_hotGirlBtn];
-    [self addSubview:_allCategoryBtn];
-    [self addSubview:_placeHolderBtn];
+    [self addSubview:_leftBtn];
+    [self addSubview:_middleBtn];
+    [self addSubview:_rightBtn];
+    [self addSubview:_leftBtn2];
+    [self addSubview:_middleBtn2];
+    [self addSubview:_rightBtn2];
     
-    [_yummyFoodBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+    [_leftBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         NSLog(@"_yummyFoodBtn");
     }];
     
-    [_footMaSaJiBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+    [_middleBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         NSLog(@"_footMaSaJiBtn");
     }];
     
-    [_hotelBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+    [_rightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         NSLog(@"_hotelBtn");
     }];
     
-    [_hotGirlBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+    [_leftBtn2 addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         NSLog(@"_hotGirlBtn");
     }];
     
-    [_allCategoryBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+    [_middleBtn2 addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         NSLog(@"_allCategoryBtn");
     }];
 }
