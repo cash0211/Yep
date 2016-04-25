@@ -7,6 +7,7 @@
 //
 
 #import "FlowView.h"
+#import "BlendedView.h"
 #import "YYKit.h"
 #import "YepMacro.h"
 
@@ -27,9 +28,9 @@
 
 @interface FlowView ()
 
-@property (nonatomic, strong) UIView  *innerView;
-@property (nonatomic, strong) CALayer *topLine;
-@property (nonatomic, strong) CALayer *bottomLine;
+@property (nonatomic, strong) UIView      *innerView;
+@property (nonatomic, strong) CALayer     *topLine;
+@property (nonatomic, strong) CALayer     *bottomLine;
 
 @end
 
@@ -199,31 +200,39 @@
     [_topRightBtn addSubview:_topRightDescLabel];
     [_bottomRightBtn addSubview:_bottomRightDescLabel];
     
+    @weakify(self)
     [_leftBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_leftBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(flowViewLeftBtnDidClick:)]) {
+            [blendedView.delegate flowViewLeftBtnDidClick:self];
+        }
     }];
     
     [_middleBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_middleBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(flowViewMiddleBtnDidClick:)]) {
+            [blendedView.delegate flowViewMiddleBtnDidClick:self];
+        }
     }];
     
     [_topRightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_topRightBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(flowViewTopRightBtnDidClick:)]) {
+            [blendedView.delegate flowViewTopRightBtnDidClick:self];
+        }
     }];
     
     [_bottomRightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_bottomRightBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(flowViewBottomRightBtnDidClick:)]) {
+            [blendedView.delegate flowViewBottomRightBtnDidClick:self];
+        }
     }];
 }
 
-
 @end
-
-
-
-
-
-
-
-
 

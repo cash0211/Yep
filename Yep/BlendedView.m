@@ -44,11 +44,13 @@
 
 - (void)_initMultipleChoiceView {
     _multipleView = [MultipleChoiceView sharedView];
+    _multipleView.blendedView = self;
     [self addSubview:_multipleView];
 }
 
 - (void)_initPromotionView {
     _promotionView = [[PromotionView alloc] initWithFrame:CGRectMake(0, _multipleView.bottom + kYPMargin, 0, 0)];
+    _promotionView.blendedView = self;
     _promotionView.titleLabel.text = @"煲宫锅物料理";
     _promotionView.priceLabel.text = @"￥ 65";
     _promotionView.countDownLabel.text = @"距离结束 ";
@@ -57,6 +59,7 @@
 
 - (void)_initGridView {
     _gridView = [[GridView alloc] initWithFrame:CGRectMake(0, _promotionView.bottom + kYPMargin, 0, 0)];
+    _gridView.blendedView = self;
     _gridView.topLeftImageView.image = [YPHelper imageNamed:@"findhome_haixian"];
     _gridView.topLeftTitleLabel.text = @"8折吃海鲜";
     _gridView.topLeftDescLabel.text = @"领千万红包";
@@ -74,6 +77,7 @@
 
 - (void)_initFlowView {
     _flowView = [[FlowView alloc] initWithFrame:CGRectMake(0, _gridView.bottom + kYPMargin, 0, 0)];
+    _flowView.blendedView = self;
     _flowView.leftTitleLabel.text = @"爱车";
     _flowView.leftDescLabel.text = @"9.9元洗车";
     _flowView.middleTitleLabel.text = @"家装";

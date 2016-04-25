@@ -7,6 +7,7 @@
 //
 
 #import "GridView.h"
+#import "BlendedView.h"
 #import "YYKit.h"
 #import "YepMacro.h"
 
@@ -199,21 +200,37 @@
     [self.layer addSublayer:_verticalLine];
     [self.layer addSublayer:_bottomLine];
     
+    @weakify(self)
     [_topLeftBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        // 向上传递
-        NSLog(@"_topLeftBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(gridViewTopLeftBtnDidClick:)]) {
+            [blendedView.delegate gridViewTopLeftBtnDidClick:self];
+        }
     }];
     
     [_topRightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_topRightBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(gridViewTopRightBtnDidClick:)]) {
+            [blendedView.delegate gridViewTopRightBtnDidClick:self];
+        }
     }];
     
     [_bottomLeftBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_bottomLeftBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(gridViewBottomLeftBtnDidClick:)]) {
+            [blendedView.delegate gridViewBottomLeftBtnDidClick:self];
+        }
     }];
     
     [_bottomRightBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-        NSLog(@"_bottomRightBtn");
+        BlendedView *blendedView = weak_self.blendedView;
+        @strongify(self)
+        if ([blendedView.delegate respondsToSelector:@selector(gridViewBottomRightBtnDidClick:)]) {
+            [blendedView.delegate gridViewBottomRightBtnDidClick:self];
+        }
     }];
 }
 

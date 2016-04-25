@@ -10,6 +10,7 @@
 #import "YYCGUtilities.h"
 #import "MultipleChoiceScrollView.h"
 #import "MultipleItemCell.h"
+#import "BlendedView.h"
 #import "UIView+YYAdd.h"
 #import "CALayer+YYAdd.h"
 #import "UIColor+YYAdd.h"
@@ -151,9 +152,9 @@
 #pragma mark - MultipleChoiceScrollViewDelegate
 
 - (void)multipleChoiceScrollViewDidTapCell:(MultipleItemCell *)cell {
-    
-    // 向上传递
-    NSLog(@"%@, %@", cell.descImageView, cell.descLabel.text);
+    if ([_blendedView.delegate respondsToSelector:@selector(multipleChoiceViewCellDidClick:)]) {
+        [_blendedView.delegate multipleChoiceViewCellDidClick:cell];
+    }
 }
 
 

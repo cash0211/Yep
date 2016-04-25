@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class BlendedView;
+
 @interface MultipleChoiceView : UIView
+
+@property (nonatomic, weak) BlendedView   *blendedView;
 
 + (instancetype)sharedView;
 

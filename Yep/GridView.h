@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class BlendedView;
+
 @interface GridView : UIView
 
 @property (nonatomic, strong) UIButton    *topLeftBtn;
@@ -29,5 +31,7 @@
 @property (nonatomic, strong) UILabel     *topRightDescLabel;
 @property (nonatomic, strong) UILabel     *bottomLeftDescLabel;
 @property (nonatomic, strong) UILabel     *bottomRightDescLabel;
+
+@property (nonatomic, weak) BlendedView   *blendedView;
 
 @end

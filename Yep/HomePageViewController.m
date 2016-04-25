@@ -11,13 +11,17 @@
 #import "GuessLikeNormalCell.h"
 #import "GuessLikeCell.h"
 #import "FetchMoreCell.h"
+#import "MultipleItemCell.h"
+#import "PromotionView.h"
+#import "GridView.h"
+#import "FlowView.h"
 #import "YYKit.h"
 #import "MJRefresh.h"
 #import "MJChiBaoZiHeader.h"
 #import "YepMacro.h"
 #import "YPHelper.h"
 
-@interface HomePageViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomePageViewController () <UITableViewDataSource, UITableViewDelegate, YPBlendedViewDelegate>
 
 @property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) BlendedView        *blendedView;
@@ -81,6 +85,48 @@
     [_tableView reloadData];
 }
 
+#pragma mark - YPBlendedViewDelegate
+
+- (void)multipleChoiceViewCellDidClick:(MultipleItemCell *)cell {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, cell.descLabel.text);
+}
+
+- (void)promotionViewDidClick:(PromotionView *)promotionView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, promotionView.titleLabel.text);
+}
+
+- (void)gridViewTopLeftBtnDidClick:(GridView *)gridView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, gridView.topLeftTitleLabel.text);
+}
+
+- (void)gridViewTopRightBtnDidClick:(GridView *)gridView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, gridView.topRightTitleLabel.text);
+}
+
+- (void)gridViewBottomLeftBtnDidClick:(GridView *)gridView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, gridView.bottomLeftTitleLabel.text);
+}
+
+- (void)gridViewBottomRightBtnDidClick:(GridView *)gridView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, gridView.bottomRightTitleLabel.text);
+}
+
+- (void)flowViewLeftBtnDidClick:(FlowView *)flowView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, flowView.leftTitleLabel.text);
+}
+
+- (void)flowViewMiddleBtnDidClick:(FlowView *)flowView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, flowView.middleTitleLabel.text);
+}
+
+- (void)flowViewTopRightBtnDidClick:(FlowView *)flowView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, flowView.topRightTitleLabel.text);
+}
+
+- (void)flowViewBottomRightBtnDidClick:(FlowView *)flowView {
+    NSLog(@"%s, %@", __PRETTY_FUNCTION__, flowView.bottomRightTitleLabel.text);
+}
+
 
 #pragma mark - Private methods
 
@@ -115,6 +161,7 @@
     [self.view addSubview:_tableView];
     
     _blendedView = [BlendedView new];
+    _blendedView.delegate = self;
     [_tableView addSubview:_blendedView];
 }
 
@@ -188,6 +235,8 @@
         [self _fetchMore];
     }
 }
+
+
 
 @end
 

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class BlendedView;
+
 @interface FlowView : UIView
 
 @property (nonatomic, strong) UIButton    *leftBtn;
@@ -29,5 +31,7 @@
 @property (nonatomic, strong) UILabel     *middleDescLabel;
 @property (nonatomic, strong) UILabel     *topRightDescLabel;
 @property (nonatomic, strong) UILabel     *bottomRightDescLabel;
+
+@property (nonatomic, weak) BlendedView   *blendedView;
 
 @end

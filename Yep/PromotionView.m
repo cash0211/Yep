@@ -23,8 +23,8 @@
 
 @interface PromotionView ()
 
-@property (nonatomic, strong) CALayer *topLine;
-@property (nonatomic, strong) CALayer *bottomLine;
+@property (nonatomic, strong) CALayer     *topLine;
+@property (nonatomic, strong) CALayer     *bottomLine;
 
 @end
 
@@ -92,7 +92,9 @@
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.backgroundColor = [UIColor whiteColor];
-    // 向上传递
+    if ([_blendedView.delegate respondsToSelector:@selector(promotionViewDidClick:)]) {
+        [_blendedView.delegate promotionViewDidClick:self];
+    }
 }
 
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
