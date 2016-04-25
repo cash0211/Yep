@@ -14,7 +14,6 @@
 #define kCategoryItemWidth            CGFloatPixelFloor(kScreenWidth / 3)
 #define kLineMargin                   20
 
-#define kCategoryItemSubViewsSize
 #define kBtnLabelWidth                (kCategoryItemWidth - kYPMargin * 2)
 #define kBtnLabelHeight               16
 #define kBtnImgWidth                  (kCategoryItemWidth / 2 + 10)
@@ -190,9 +189,3 @@
 }
 
 @end
-
-
-
-
-
-

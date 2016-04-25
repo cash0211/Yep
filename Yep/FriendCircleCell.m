@@ -11,9 +11,8 @@
 #import "YepMacro.h"
 #import "YPHelper.h"
 
-#define kViewHeight               70
-#define kImageViewWidth           35
-#define kImageViewHeight          35
+#define kViewHeight              70
+#define kImageViewSize           35
 
 @implementation FriendCircleCell
 
@@ -38,7 +37,7 @@
 - (void)_initSubViews {
     
     _friendImageView = [UIImageView new];
-    _friendImageView.size = CGSizeMake(kImageViewWidth, kImageViewHeight);
+    _friendImageView.size = CGSizeMake(kImageViewSize, kImageViewSize);
     _friendImageView.left = kYPMargin;
     _friendImageView.centerY = self.centerY;
     

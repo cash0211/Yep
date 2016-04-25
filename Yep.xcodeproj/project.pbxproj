@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C917703D1CC4D1E5001EF997 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C917703C1CC4D1E5001EF997 /* main.m */; };
 		C91770401CC4D1E5001EF997 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C917703F1CC4D1E5001EF997 /* AppDelegate.m */; };
-		C91770431CC4D1E5001EF997 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C91770421CC4D1E5001EF997 /* ViewController.m */; };
 		C91770461CC4D1E5001EF997 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91770441CC4D1E5001EF997 /* Main.storyboard */; };
 		C91770481CC4D1E5001EF997 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C91770471CC4D1E5001EF997 /* Assets.xcassets */; };
 		C917704B1CC4D1E5001EF997 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C91770491CC4D1E5001EF997 /* LaunchScreen.storyboard */; };
@@ -112,6 +111,7 @@
 		C95A292E1CCCB93D008239F7 /* groupbuying-preload.plist in Resources */ = {isa = PBXBuildFile; fileRef = C95A292D1CCCB93D008239F7 /* groupbuying-preload.plist */; };
 		C95A29311CCCD801008239F7 /* FullImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A29301CCCD801008239F7 /* FullImageCell.m */; };
 		C95A29341CCCDEC4008239F7 /* FunnyLifeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A29331CCCDEC4008239F7 /* FunnyLifeCell.m */; };
+		C95A293A1CCDE088008239F7 /* FetchMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C95A29391CCDE088008239F7 /* FetchMoreCell.m */; };
 		C98FF42B1CC52517006AF5EF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98FF42A1CC52517006AF5EF /* UIKit.framework */; };
 		C98FF42D1CC5251D006AF5EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98FF42C1CC5251D006AF5EF /* Foundation.framework */; };
 		C98FF42F1CC52521006AF5EF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C98FF42E1CC52521006AF5EF /* QuartzCore.framework */; };
@@ -304,8 +304,6 @@
 		C917703C1CC4D1E5001EF997 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C917703E1CC4D1E5001EF997 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C917703F1CC4D1E5001EF997 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C91770411CC4D1E5001EF997 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C91770421CC4D1E5001EF997 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		C91770451CC4D1E5001EF997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C91770471CC4D1E5001EF997 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C917704A1CC4D1E5001EF997 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -509,6 +507,8 @@
 		C95A29301CCCD801008239F7 /* FullImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullImageCell.m; sourceTree = "<group>"; };
 		C95A29321CCCDEC4008239F7 /* FunnyLifeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunnyLifeCell.h; sourceTree = "<group>"; };
 		C95A29331CCCDEC4008239F7 /* FunnyLifeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunnyLifeCell.m; sourceTree = "<group>"; };
+		C95A29381CCDE088008239F7 /* FetchMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FetchMoreCell.h; sourceTree = "<group>"; };
+		C95A29391CCDE088008239F7 /* FetchMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FetchMoreCell.m; sourceTree = "<group>"; };
 		C98FF42A1CC52517006AF5EF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C98FF42C1CC5251D006AF5EF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C98FF42E1CC52521006AF5EF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -754,9 +754,8 @@
 		C917702F1CC4D1E5001EF997 = {
 			isa = PBXGroup;
 			children = (
-				C98FF4681CC5372D006AF5EF /* Resources */,
-				C91772501CC51E59001EF997 /* Frameworks */,
 				C917703A1CC4D1E5001EF997 /* Yep */,
+				C91772501CC51E59001EF997 /* Frameworks */,
 				C91770541CC4D1E5001EF997 /* YepTests */,
 				C91770391CC4D1E5001EF997 /* Products */,
 			);
@@ -774,26 +773,19 @@
 		C917703A1CC4D1E5001EF997 /* Yep */ = {
 			isa = PBXGroup;
 			children = (
-				C98FF4721CC66B27006AF5EF /* MJRefresh */,
-				C91772A71CC520D4001EF997 /* YYKit */,
+				C95A29361CCDC183008239F7 /* Helper */,
+				C95A29351CCDC0E2008239F7 /* Vendors */,
 				C917703E1CC4D1E5001EF997 /* AppDelegate.h */,
 				C917703F1CC4D1E5001EF997 /* AppDelegate.m */,
-				C91770411CC4D1E5001EF997 /* ViewController.h */,
-				C91770421CC4D1E5001EF997 /* ViewController.m */,
 				C91770631CC4D8B1001EF997 /* YPTabBarController.h */,
 				C91770641CC4D8B1001EF997 /* YPTabBarController.m */,
 				C9377F301CC8F39200295C78 /* YepMacro.h */,
-				C917703B1CC4D1E5001EF997 /* Supporting Files */,
-				C9377F3C1CC9C90000295C78 /* UserCenter */,
-				C9377F381CC9C3F800295C78 /* Found */,
-				C9377F311CC9B95400295C78 /* GroupBuying */,
-				C98FF5F91CC7B4AA006AF5EF /* GuessLikeCell.h */,
-				C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */,
-				C98FF5F61CC7776B006AF5EF /* GuessLikeNormalCell.h */,
-				C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */,
 				C98FF5F51CC7764C006AF5EF /* HomePage */,
-				C9E442871CCA579600A120AC /* YPHelper.h */,
-				C9E442881CCA579600A120AC /* YPHelper.m */,
+				C9377F311CC9B95400295C78 /* GroupBuying */,
+				C9377F381CC9C3F800295C78 /* Found */,
+				C9377F3C1CC9C90000295C78 /* UserCenter */,
+				C917703B1CC4D1E5001EF997 /* Supporting Files */,
+				C98FF4681CC5372D006AF5EF /* Resources */,
 			);
 			path = Yep;
 			sourceTree = "<group>";
@@ -1130,14 +1122,14 @@
 			children = (
 				C9377F321CC9B9B600295C78 /* DiscoverViewController.h */,
 				C9377F331CC9B9B600295C78 /* DiscoverViewController.m */,
-				C95A29321CCCDEC4008239F7 /* FunnyLifeCell.h */,
-				C95A29331CCCDEC4008239F7 /* FunnyLifeCell.m */,
-				C95A292F1CCCD801008239F7 /* FullImageCell.h */,
-				C95A29301CCCD801008239F7 /* FullImageCell.m */,
 				C95A29251CCC8D68008239F7 /* FriendCircleCell.h */,
 				C95A29261CCC8D68008239F7 /* FriendCircleCell.m */,
 				C95A29281CCCA2BD008239F7 /* FoundCommonCell.h */,
 				C95A29291CCCA2BD008239F7 /* FoundCommonCell.m */,
+				C95A292F1CCCD801008239F7 /* FullImageCell.h */,
+				C95A29301CCCD801008239F7 /* FullImageCell.m */,
+				C95A29321CCCDEC4008239F7 /* FunnyLifeCell.h */,
+				C95A29331CCCDEC4008239F7 /* FunnyLifeCell.m */,
 				C95A292B1CCCB123008239F7 /* found-preload.plist */,
 			);
 			name = Found;
@@ -1161,6 +1153,40 @@
 			name = UserCenter;
 			sourceTree = "<group>";
 		};
+		C95A29351CCDC0E2008239F7 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				C91772A71CC520D4001EF997 /* YYKit */,
+				C98FF4721CC66B27006AF5EF /* MJRefresh */,
+			);
+			name = Vendors;
+			sourceTree = "<group>";
+		};
+		C95A29361CCDC183008239F7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C9E442871CCA579600A120AC /* YPHelper.h */,
+				C9E442881CCA579600A120AC /* YPHelper.m */,
+				C95A29381CCDE088008239F7 /* FetchMoreCell.h */,
+				C95A29391CCDE088008239F7 /* FetchMoreCell.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		C95A29371CCDDCEB008239F7 /* BlendedView_1 */ = {
+			isa = PBXGroup;
+			children = (
+				C917706F1CC4F197001EF997 /* MultipleChoiceView.h */,
+				C91770701CC4F197001EF997 /* MultipleChoiceView.m */,
+				C917706C1CC4ECCE001EF997 /* MultipleChoiceScrollView.h */,
+				C917706D1CC4ECCE001EF997 /* MultipleChoiceScrollView.m */,
+				C91770661CC4E8B6001EF997 /* MultipleItemCell.h */,
+				C91770671CC4E8B6001EF997 /* MultipleItemCell.m */,
+				C91770761CC4F8DD001EF997 /* multipleChoice.plist */,
+			);
+			name = BlendedView_1;
+			sourceTree = "<group>";
+		};
 		C98FF4681CC5372D006AF5EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -1168,6 +1194,7 @@
 				C98FF4B51CC66C7D006AF5EF /* refreshImages */,
 			);
 			name = Resources;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		C98FF4721CC66B27006AF5EF /* MJRefresh */ = {
@@ -1917,19 +1944,17 @@
 				C91770611CC4D7A7001EF997 /* HomePageViewController.m */,
 				C98FF5F21CC77117006AF5EF /* BlendedView.h */,
 				C98FF5F31CC77117006AF5EF /* BlendedView.m */,
-				C917706F1CC4F197001EF997 /* MultipleChoiceView.h */,
-				C91770701CC4F197001EF997 /* MultipleChoiceView.m */,
-				C917706C1CC4ECCE001EF997 /* MultipleChoiceScrollView.h */,
-				C917706D1CC4ECCE001EF997 /* MultipleChoiceScrollView.m */,
-				C91770661CC4E8B6001EF997 /* MultipleItemCell.h */,
-				C91770671CC4E8B6001EF997 /* MultipleItemCell.m */,
-				C91770761CC4F8DD001EF997 /* multipleChoice.plist */,
+				C95A29371CCDDCEB008239F7 /* BlendedView_1 */,
 				C98FF4691CC5503D006AF5EF /* PromotionView.h */,
 				C98FF46A1CC5503D006AF5EF /* PromotionView.m */,
 				C98FF46C1CC6388D006AF5EF /* GridView.h */,
 				C98FF46D1CC6388D006AF5EF /* GridView.m */,
 				C98FF46F1CC65EC3006AF5EF /* FlowView.h */,
 				C98FF4701CC65EC3006AF5EF /* FlowView.m */,
+				C98FF5F91CC7B4AA006AF5EF /* GuessLikeCell.h */,
+				C98FF5FA1CC7B4AB006AF5EF /* GuessLikeCell.m */,
+				C98FF5F61CC7776B006AF5EF /* GuessLikeNormalCell.h */,
+				C98FF5F71CC7776B006AF5EF /* GuessLikeNormalCell.m */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -2177,7 +2202,6 @@
 				C917739D1CC520D5001EF997 /* YYAsyncLayer.m in Sources */,
 				C9377F2F1CC8F2AD00295C78 /* NormalCategoryView.m in Sources */,
 				C91770621CC4D7A7001EF997 /* HomePageViewController.m in Sources */,
-				C91770431CC4D1E5001EF997 /* ViewController.m in Sources */,
 				C917738F1CC520D5001EF997 /* YYTextLine.m in Sources */,
 				C95A292A1CCCA2BD008239F7 /* FoundCommonCell.m in Sources */,
 				C917739E1CC520D5001EF997 /* YYDispatchQueuePool.m in Sources */,
@@ -2240,6 +2264,7 @@
 				C917738B1CC520D5001EF997 /* YYTextEffectWindow.m in Sources */,
 				C98FF4A81CC66B27006AF5EF /* MJRefreshBackNormalFooter.m in Sources */,
 				C917736F1CC520D5001EF997 /* UIGestureRecognizer+YYAdd.m in Sources */,
+				C95A293A1CCDE088008239F7 /* FetchMoreCell.m in Sources */,
 				C91773831CC520D5001EF997 /* YYImageCoder.m in Sources */,
 				C98FF4A01CC66B27006AF5EF /* MJRefreshBackFooter.m in Sources */,
 				C98FF4A91CC66B27006AF5EF /* MJRefreshBackStateFooter.m in Sources */,

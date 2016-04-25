@@ -19,7 +19,6 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) MyBlendedView *myBlendedView;
-
 @property (nonatomic, strong) NSArray *userCenterIndex;
 
 @end
@@ -40,7 +39,7 @@
     
     self.view.backgroundColor = kYPBackgroundColor;
     self.navigationItem.title = @"我的";
-
+    
     [self _initData];
     [self _initNavBar];
     [self _initTableView];
@@ -52,27 +51,7 @@
     _tableView.mj_header = header;
     [_tableView.mj_header beginRefreshing];
     
-    [_tableView registerClass:[CommonCell class] forCellReuseIdentifier:[CommonCell cellId]];
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    // Notification
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    
-}
-
 
 #pragma mark - Event response
 
@@ -84,9 +63,6 @@
 - (void)_help {
     
 }
-
-#pragma mark - Public methods
-
 
 
 #pragma mark - Private methods
@@ -112,7 +88,7 @@
         }
         modelKeep = model;
     }
-    _userCenterIndex = [userCenterIndex copy];
+    _userCenterIndex = userCenterIndex.copy;
 }
 
 - (void)_initNavBar {
@@ -128,15 +104,15 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
     _tableView.scrollIndicatorInsets = _tableView.contentInset;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.backgroundView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_tableView];
     
-    _myBlendedView = [[MyBlendedView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    _myBlendedView = [MyBlendedView new];
     [_tableView addSubview:_myBlendedView];
 }
+
 
 #pragma mark - UITableViewDataSource
 
@@ -145,14 +121,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
    return [_userCenterIndex[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (0 != indexPath.section) {
-        CommonCell *commonCell = [_tableView dequeueReusableCellWithIdentifier:[CommonCell cellId] forIndexPath:indexPath];
+        CommonCell *commonCell = [[CommonCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[CommonCell cellId]];
         [self configureCell:commonCell forRowAtIndexPath:indexPath];
         return commonCell;
     }
@@ -177,6 +152,7 @@
     }
 }
 
+
 #pragma mark - UITableViewDataDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -189,7 +165,6 @@
     if (0 == indexPath.section) {
         return _myBlendedView.height - 35;
     }
-    
     return 44;
 }
 
@@ -205,9 +180,4 @@
 }
 
 @end
-
-
-
-
-
 

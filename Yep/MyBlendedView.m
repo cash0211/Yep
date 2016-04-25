@@ -14,7 +14,6 @@
 @interface MyBlendedView ()
 
 @property (nonatomic, strong) LoginEntryView   *loginEntryView;
-
 @property (nonatomic, assign) CGFloat           viewHeight;
 
 @end
@@ -35,11 +34,10 @@
 
 - (void)_initSubViews {
     
-    _loginEntryView = [[LoginEntryView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    _loginEntryView = [LoginEntryView new];
     [self addSubview:_loginEntryView];
     
     _viewHeight = _loginEntryView.height;
 }
-
 
 @end

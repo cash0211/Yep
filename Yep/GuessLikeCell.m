@@ -9,11 +9,11 @@
 #import "GuessLikeCell.h"
 #import "YYKit.h"
 #import "YPHelper.h"
+#import "YepMacro.h"
 
 #define kCellHeight             102
-#define kSubViewsPadding        10
-#define kImageViewSize          (kCellHeight - kSubViewsPadding * 2)
-#define kLabelWidth             (kScreenWidth - kSubViewsPadding * 6 - kImageViewSize)
+#define kImageViewSize          (kCellHeight - kYPMargin * 2)
+#define kLabelWidth             (kScreenWidth - kYPMargin * 6 - kImageViewSize)
 #define kLabelHeight            20
 #define kLabelPadding           (kImageViewSize - kLabelHeight * 2 - 10) / 2
 
@@ -33,8 +33,8 @@
     
     _cellImageView = [UIImageView new];
     _cellImageView.size = CGSizeMake(kImageViewSize + 28, kImageViewSize);
-    _cellImageView.top = kSubViewsPadding;
-    _cellImageView.left = kSubViewsPadding;
+    _cellImageView.top = kYPMargin;
+    _cellImageView.left = kYPMargin;
     _cellImageView.backgroundColor = [UIColor purpleColor];
     
     _badge = [UIView new];
@@ -49,22 +49,22 @@
     _descLabel.font = [UIFont systemFontOfSize:12];
     _descLabel.textColor = [UIColor darkGrayColor];
     _descLabel.numberOfLines = 2;
-    _descLabel.left = _cellImageView.right + kSubViewsPadding;
+    _descLabel.left = _cellImageView.right + kYPMargin;
     _descLabel.centerY = _cellImageView.centerY - 4;
     
     _titleLabel = [UILabel new];
-    _titleLabel.size = CGSizeMake(kLabelWidth - kSubViewsPadding * 3, kLabelHeight);
+    _titleLabel.size = CGSizeMake(kLabelWidth - kYPMargin * 3, kLabelHeight);
     _titleLabel.userInteractionEnabled = NO;
     _titleLabel.font = [UIFont systemFontOfSize:16];
     _titleLabel.left = _descLabel.left;
     _titleLabel.bottom = _descLabel.top - 4;
     
     _distanceLabel = [UILabel new];
-    _distanceLabel.size = CGSizeMake(kSubViewsPadding * 3, _titleLabel.height);
+    _distanceLabel.size = CGSizeMake(kYPMargin * 3, _titleLabel.height);
     _distanceLabel.userInteractionEnabled = NO;
     _distanceLabel.font = [UIFont systemFontOfSize:10];
     _distanceLabel.textColor = [UIColor grayColor];
-    _distanceLabel.right = kScreenWidth - kSubViewsPadding;
+    _distanceLabel.right = kScreenWidth - kYPMargin;
     _distanceLabel.bottom = _titleLabel.bottom;
     
     _priceLabel = [UILabel new];
@@ -97,11 +97,5 @@
 }
 
 @end
-
-
-
-
-
-
 
 

@@ -10,16 +10,19 @@
 #import "BlendedView.h"
 #import "GuessLikeNormalCell.h"
 #import "GuessLikeCell.h"
+#import "FetchMoreCell.h"
 #import "YYKit.h"
 #import "MJRefresh.h"
 #import "MJChiBaoZiHeader.h"
 #import "YepMacro.h"
+#import "YPHelper.h"
 
 @interface HomePageViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) BlendedView        *blendedView;
-@property (nonatomic, strong) NSMutableArray     *guessLikeItems;
+@property (nonatomic, strong) FetchMoreCell      *moreCell;
+@property (nonatomic, strong) NSArray            *guessLikeItems;
 
 @end
 
@@ -30,18 +33,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    if ([self respondsToSelector:@selector(setAutomaticallyAdjustsScrollViewInsets:)]) {
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-//    }
     self.view.backgroundColor = kYPBackgroundColor;
 
+    [self _initData];
     [self _initNavBar];
     [self _initTableView];
-       
-    _guessLikeItems = [NSMutableArray arrayWithCapacity:3];
-    [_guessLikeItems addObject:@"dsds"];
-    [_guessLikeItems addObject:@"dsds"];
-    [_guessLikeItems addObject:@"dsds"];
     
     MJChiBaoZiHeader *header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(_loadNewData)];
     header.automaticallyChangeAlpha = YES;
@@ -52,25 +48,6 @@
     
     [_tableView registerClass:[GuessLikeNormalCell class] forCellReuseIdentifier:[GuessLikeNormalCell cellId]];
     [_tableView registerClass:[GuessLikeCell class] forCellReuseIdentifier:[GuessLikeCell cellId]];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-}
-
-- (void)viewWillLayoutSubviews {
-    [super viewWillLayoutSubviews];
-    // layout
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    // Notification
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,41 +71,50 @@
     [_tableView.mj_header endRefreshing];
 }
 
+- (void)_fetchMore {
+    
+    _moreCell.status = FetchMoreCellStatusLoading;
 
-#pragma mark - Public methods
-
+    NSMutableArray *mutable = _guessLikeItems.mutableCopy;
+    [mutable addObjectsFromArray:mutable];
+    _guessLikeItems = mutable;
+    [_tableView reloadData];
+}
 
 
 #pragma mark - Private methods
 
+- (void)_initData {
+    NSMutableArray *mutableArr = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", nil];
+    _guessLikeItems = [mutableArr copy];
+}
+
 - (void)_initNavBar {
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"南京" style:UIBarButtonItemStylePlain target:self action:@selector(_chooseCity)];
-    UIButton *downArrow = [UIButton new];
-    [downArrow setImage:[UIImage imageNamed:@"downArrow"] forState:UIControlStateNormal];
+    UIButton *downArrow = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15, 30)];
+    [downArrow addTarget:self action:@selector(_chooseCity) forControlEvents:UIControlEventTouchUpInside];
+    [downArrow setImage:[YPHelper imageNamed:@"navibar_icon_arrow_down"] forState:UIControlStateNormal];
     UIBarButtonItem *downItem = [[UIBarButtonItem alloc] initWithCustomView:downArrow];
-    self.navigationItem.leftBarButtonItems = @[leftItem, downItem];
-    
-    UIButton *envelopBtn = [UIButton new];
-    [envelopBtn addTarget:self action:@selector(_next) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:envelopBtn];
-    self.navigationItem.rightBarButtonItem = rightItem;
+    self.navigationItem.leftBarButtonItems = @[leftItem ,downItem];
     
     // searchBar
-    
 }
 
 - (void)_initTableView {
     _tableView = [UITableView new];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
     _tableView.frame = self.view.bounds;
     _tableView.scrollIndicatorInsets = _tableView.contentInset;
     _tableView.backgroundColor = [UIColor clearColor];
     _tableView.backgroundView.backgroundColor = [UIColor clearColor];
+    _moreCell = [FetchMoreCell new];
+    [_moreCell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_fetchMore)]];
+    _moreCell.status = FetchMoreCellStatusMore;
+    _tableView.tableFooterView = _moreCell;
     [self.view addSubview:_tableView];
     
-    _blendedView = [[BlendedView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    _blendedView = [BlendedView new];
     [_tableView addSubview:_blendedView];
 }
 
@@ -162,6 +148,7 @@
     return cell;
 }
 
+
 #pragma mark - UITableViewDataDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -190,18 +177,19 @@
     return 0;
 }
 
-#pragma mark - CustomDelegate
+#pragma mark - UIScrollViewDelegate
 
-
-
-#pragma mark - Getters & Setters
-
-
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (20 == _guessLikeItems.count) {
+        _moreCell.status = FetchMoreCellStatusFinished;
+        return;
+    }
+    if (scrollView.contentOffset.y > (scrollView.contentSize.height - scrollView.frame.size.height - 50)){
+        [self _fetchMore];
+    }
+}
 
 @end
-
-
 
 
 

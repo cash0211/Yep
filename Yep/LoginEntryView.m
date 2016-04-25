@@ -11,17 +11,17 @@
 #import "YepMacro.h"
 #import "YPHelper.h"
 
-#define kViewHeight            140
-#define kLoginBtnHeight        (kViewHeight / 2)
+#define kViewHeight             140
+#define kLoginBtnHeight         (kViewHeight / 2)
 
-#define kImageViewSize         52
-#define kLabelHeight           20
-#define kBtnLabelHeight        11
-#define kBtnLabelWidth         60
-#define kViewItemWidth            CGFloatPixelRound(kScreenWidth / 3)
-#define kViewItemHeight           ((kViewHeight) / 2)
+#define kImageViewSize          52
+#define kLabelHeight            20
+#define kBtnLabelHeight         11
+#define kBtnLabelWidth          60
+#define kViewItemWidth          CGFloatPixelRound(kScreenWidth / 3)
+#define kViewItemHeight         ((kViewHeight) / 2)
 
-#define kBtnDescLabelTextColor    UIColorHex(b4b4b4)
+#define kBtnDescLabelTextColor  UIColorHex(b4b4b4)
 
 @interface LoginEntryView ()
 
@@ -66,6 +66,12 @@
 }
 
 - (void)_solidData {
+    _avatarImageView.image = [YPHelper imageNamed:@"personal_defaulthead"];
+    _arrowImageView.image = [YPHelper imageNamed:@"Arrow_Left"];
+    
+    _dianPinImageView.image = [YPHelper imageNamed:@"personal_icon_dianping"];
+    _collectionImageView.image = [YPHelper imageNamed:@"personal_icon_like"];
+    _couponImageView.image = [YPHelper imageNamed:@"personal_icon_tuangou"];;
     
     _loginLabel.text = @"点击登录";
     _loginDescLabel.text = @"登录享优惠";
@@ -117,7 +123,6 @@
     _avatarImageView.size = CGSizeMake(kImageViewSize, kImageViewSize);
     _avatarImageView.left = kYPMargin + 5;
     _avatarImageView.centerY = kLoginBtnHeight / 2;
-    _avatarImageView.image = [YPHelper imageNamed:@"personal_defaulthead"];
     
     _loginLabel = [UILabel new];
     _loginLabel.size = CGSizeMake(kLabelHeight * 5, kLabelHeight);
@@ -130,7 +135,6 @@
     _arrowImageView.size = CGSizeMake(12, 12);
     _arrowImageView.right = kScreenWidth - 15;
     _arrowImageView.centerY = _avatarImageView.centerY;
-    _arrowImageView.image = [YPHelper imageNamed:@"Arrow_Left"];
     
     _loginDescLabel = [UILabel new];
     _loginDescLabel.size = CGSizeMake(kLabelHeight * 3, kLabelHeight);
@@ -175,17 +179,14 @@
     _dianPinImageView = [UIImageView new];
     _dianPinImageView.size = CGSizeMake(30, 30);
     _dianPinImageView.center = btnCenter;
-    _dianPinImageView.image = [YPHelper imageNamed:@"personal_icon_dianping"];
     
     _collectionImageView = [UIImageView new];
     _collectionImageView.size = _dianPinImageView.size;
     _collectionImageView.center = btnCenter;
-    _collectionImageView.image = [YPHelper imageNamed:@"personal_icon_like"];
     
     _couponImageView = [UIImageView new];
     _couponImageView.size = _dianPinImageView.size;
     _couponImageView.center = btnCenter;
-    _couponImageView.image = [YPHelper imageNamed:@"personal_icon_tuangou"];;
     
     [_dianPinBtn addSubview:_dianPinImageView];
     [_collectionBtn addSubview:_collectionImageView];
@@ -218,7 +219,6 @@
     [_dianPinBtn addSubview:_dianPinLabel];
     [_collectionBtn addSubview:_collectionLabel];
     [_couponBtn addSubview:_couponLabel];
-    
     
     [_loginBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         NSLog(@"_loginBtn");

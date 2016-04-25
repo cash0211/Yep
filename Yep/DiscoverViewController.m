@@ -38,16 +38,7 @@
     [self _initNavBar];
     [self _initTableView];
     
-    [_tableView registerClass:[FoundCommonCell class] forCellReuseIdentifier:[FoundCommonCell cellId]];
     [_tableView registerClass:[FunnyLifeCell class] forCellReuseIdentifier:[FunnyLifeCell cellId]];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    
 }
 
 
@@ -58,10 +49,6 @@
 }
 
 
-#pragma mark - Public methods
-
-
-
 #pragma mark - Private methods
 
 - (void)_initData {
@@ -69,12 +56,12 @@
 }
 
 - (void)_initNavBar {
-    
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"南京" style:UIBarButtonItemStylePlain target:self action:@selector(_chooseCity)];
-    UIButton *downArrow = [UIButton new];
-    [downArrow setImage:[UIImage imageNamed:@"downArrow"] forState:UIControlStateNormal];
+    UIButton *downArrow = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 15, 30)];
+    [downArrow addTarget:self action:@selector(_chooseCity) forControlEvents:UIControlEventTouchUpInside];
+    [downArrow setImage:[YPHelper imageNamed:@"navibar_icon_arrow_down"] forState:UIControlStateNormal];
     UIBarButtonItem *downItem = [[UIBarButtonItem alloc] initWithCustomView:downArrow];
-    self.navigationItem.leftBarButtonItems = @[leftItem, downItem];
+    self.navigationItem.leftBarButtonItems = @[leftItem ,downItem];
     
     // searchBar
 }
@@ -83,7 +70,6 @@
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
     _tableView.frame = self.view.bounds;
     _tableView.scrollIndicatorInsets = _tableView.contentInset;
     _tableView.backgroundColor = [UIColor clearColor];
@@ -115,7 +101,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     if (0 == section) {
@@ -124,7 +109,7 @@
         cell.descLabel.text = @"看土豪朋友去哪得瑟!";
         return cell;
     } else if (1 == section || 2 == section) {
-        FoundCommonCell *foundCommonCell = [_tableView dequeueReusableCellWithIdentifier:[FoundCommonCell cellId] forIndexPath:indexPath];
+        FoundCommonCell *foundCommonCell = [[FoundCommonCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:[FoundCommonCell cellId]];
         NSArray *tmp =  _solidDataArr[section][row];
         foundCommonCell.commonImageView.image = [YPHelper imageNamed:tmp[0]];
         foundCommonCell.titleLabel.text = tmp[1];
@@ -147,10 +132,10 @@
     return funnyLifeCell;
 }
 
+
 #pragma mark - UITableViewDataDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -189,9 +174,5 @@
 }
 
 @end
-
-
-
-
 
 

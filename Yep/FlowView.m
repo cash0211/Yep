@@ -10,18 +10,16 @@
 #import "YYKit.h"
 #import "YepMacro.h"
 
-#define kFlowItemPadding     10
-#define kBtnSubViewsPadding  10
 #define kViewHeight          282
 
 #define kseparatorLineWH     2
-#define kInnerViewWidth      (self.width - kFlowItemPadding * 2)
-#define kInnerViewHeight     (kViewHeight - kFlowItemPadding * 2)
+#define kInnerViewWidth      (self.width - kYPMargin * 2)
+#define kInnerViewHeight     (kViewHeight - kYPMargin * 2)
 #define kFlowItemWidth       CGFloatPixelRound((kInnerViewWidth - kseparatorLineWH * 2) / 3)
 #define kFlowItemHeight      ((kInnerViewHeight - kseparatorLineWH) / 2)
 
-#define kBtnImgViewSize      ((kFlowItemWidth) - kBtnSubViewsPadding * 4)
-#define kBtnImgViewSize2     ((kFlowItemWidth) - kBtnSubViewsPadding * 6)
+#define kBtnImgViewSize      ((kFlowItemWidth) - kYPMargin * 4)
+#define kBtnImgViewSize2     ((kFlowItemWidth) - kYPMargin * 6)
 #define kBtnLabelHeight      20
 
 #define kBtnNormalColor           UIColorHex(f7f7f7)
@@ -61,8 +59,8 @@
     
     _innerView = [UIView new];
     _innerView.size = CGSizeMake(kInnerViewWidth, kInnerViewHeight);
-    _innerView.left = kFlowItemPadding;
-    _innerView.top = kFlowItemPadding;
+    _innerView.left = kYPMargin;
+    _innerView.top = kYPMargin;
     _innerView.backgroundColor = [UIColor clearColor];
     
     [self.layer addSublayer:_topLine];
@@ -104,7 +102,7 @@
     
     _leftImageView = [UIImageView new];
     _leftImageView.size = CGSizeMake(kBtnImgViewSize, kBtnImgViewSize * 2 - 12);
-    _leftImageView.left = kBtnSubViewsPadding * 2;
+    _leftImageView.left = kYPMargin * 2;
     _leftImageView.bottom = _leftBtn.height - 42;
     _leftImageView.backgroundColor = [UIColor purpleColor];
     
@@ -116,8 +114,8 @@
     
     _topRightImageView = [UIImageView new];
     _topRightImageView.size = CGSizeMake(kBtnImgViewSize2, kBtnImgViewSize2);
-    _topRightImageView.left = kBtnSubViewsPadding * 3;
-    _topRightImageView.bottom = kFlowItemHeight - kBtnSubViewsPadding;
+    _topRightImageView.left = kYPMargin * 3;
+    _topRightImageView.bottom = kFlowItemHeight - kYPMargin;
     _topRightImageView.backgroundColor = [UIColor purpleColor];
 
     _bottomRightImageView = [UIImageView new];
@@ -130,13 +128,13 @@
     [_middleBtn addSubview:_middleImageView];
     [_topRightBtn addSubview:_topRightImageView];
     [_bottomRightBtn addSubview:_bottomRightImageView];
-
+    
     _leftTitleLabel = [UILabel new];
     _leftTitleLabel.size = CGSizeMake(kFlowItemWidth, kBtnLabelHeight);
     _leftTitleLabel.userInteractionEnabled = NO;
     _leftTitleLabel.font = [UIFont systemFontOfSize:14];
     _leftTitleLabel.textAlignment = NSTextAlignmentCenter;
-    _leftTitleLabel.top = kBtnSubViewsPadding + 2;
+    _leftTitleLabel.top = kYPMargin + 2;
 
     _middleTitleLabel = [UILabel new];
     _middleTitleLabel.size = CGSizeMake(_leftTitleLabel.width, _leftTitleLabel.height);
@@ -163,7 +161,7 @@
     [_middleBtn addSubview:_middleTitleLabel];
     [_topRightBtn addSubview:_topRightTitleLabel];
     [_bottomRightBtn addSubview:_bottomRightTitleLabel];
-
+    
     _leftDescLabel = [UILabel new];
     _leftDescLabel.size = CGSizeMake(_leftTitleLabel.width, _leftTitleLabel.height);
     _leftDescLabel.userInteractionEnabled = NO;
@@ -195,7 +193,7 @@
     _bottomRightDescLabel.font = [UIFont systemFontOfSize:12];
     _bottomRightDescLabel.textAlignment = NSTextAlignmentCenter;
     _bottomRightDescLabel.top = _bottomRightTitleLabel.bottom;
-
+    
     [_leftBtn addSubview:_leftDescLabel];
     [_middleBtn addSubview:_middleDescLabel];
     [_topRightBtn addSubview:_topRightDescLabel];

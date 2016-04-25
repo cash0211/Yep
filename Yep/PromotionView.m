@@ -78,12 +78,12 @@
     _bottomLine.bottom = self.height;
     _bottomLine.backgroundColor = kYPLineColor;
     
+    [self.layer addSublayer:_topLine];
+    [self.layer addSublayer:_bottomLine];
     [self addSubview:_promotionImageView];
     [self addSubview:_titleLabel];
     [self addSubview:_priceLabel];
     [self addSubview:_countDownLabel];
-    [self.layer addSublayer:_topLine];
-    [self.layer addSublayer:_bottomLine];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {

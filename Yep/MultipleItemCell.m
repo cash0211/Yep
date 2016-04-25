@@ -42,6 +42,10 @@
     _descLabel.size = CGSizeMake(_descImageView.width, 20);
 }
 
++ (NSString *)cellId {
+    return @"multipleItemCell";
+}
+
 @end
 
 

@@ -52,12 +52,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - private methods
-
-
-
-#pragma mark - UITabBarDelegate
-
-
-
 @end

@@ -98,48 +98,4 @@
     return attrString;
 }
 
-+ (NSAttributedString *)attachmentWithFontSize:(CGFloat)fontSize image:(UIImage *)image shrink:(BOOL)shrink {
-    
-    //    CGFloat ascent = YYEmojiGetAscentWithFontSize(fontSize);
-    //    CGFloat descent = YYEmojiGetDescentWithFontSize(fontSize);
-    //    CGRect bounding = YYEmojiGetGlyphBoundingRectWithFontSize(fontSize);
-    
-    // Heiti SC 字体。。
-    CGFloat ascent = fontSize * 0.86;
-    CGFloat descent = fontSize * 0.14;
-    CGRect bounding = CGRectMake(0, -0.14 * fontSize, fontSize, fontSize);
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(ascent - (bounding.size.height + bounding.origin.y), 0, descent + bounding.origin.y, 0);
-    
-    YYTextRunDelegate *delegate = [YYTextRunDelegate new];
-    delegate.ascent = ascent;
-    delegate.descent = descent;
-    delegate.width = bounding.size.width;
-    
-    YYTextAttachment *attachment = [YYTextAttachment new];
-    attachment.contentMode = UIViewContentModeScaleAspectFit;
-    attachment.contentInsets = contentInsets;
-    attachment.content = image;
-    
-    if (shrink) {
-        // 缩小~
-        CGFloat scale = 1 / 10.0;
-        contentInsets.top += fontSize * scale;
-        contentInsets.bottom += fontSize * scale;
-        contentInsets.left += fontSize * scale;
-        contentInsets.right += fontSize * scale;
-        contentInsets = UIEdgeInsetPixelFloor(contentInsets);
-        attachment.contentInsets = contentInsets;
-    }
-    
-    NSMutableAttributedString *atr = [[NSMutableAttributedString alloc] initWithString:YYTextAttachmentToken];
-    [atr setTextAttachment:attachment range:NSMakeRange(0, atr.length)];
-    CTRunDelegateRef ctDelegate = delegate.CTRunDelegate;
-    [atr setRunDelegate:ctDelegate range:NSMakeRange(0, atr.length)];
-    if (ctDelegate) CFRelease(ctDelegate);
-    
-    return atr;
-}
-
-
-
 @end

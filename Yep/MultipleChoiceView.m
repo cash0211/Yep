@@ -14,6 +14,7 @@
 #import "CALayer+YYAdd.h"
 #import "UIColor+YYAdd.h"
 #import "YPHelper.h"
+#import "YepMacro.h"
 
 #define kOnePageCount          8
 #define kItemHeight            50
@@ -22,16 +23,14 @@
 #define kLayoutItemSize        (kCollectionViewHeight) / 2
 
 #define kPageControlIndicatorTintColor  UIColorHex(f2f2f2)
-#define kBottomLineColor                [UIColor colorWithWhite:0.000 alpha:0.15].CGColor
 
 @interface MultipleChoiceView () <UICollectionViewDelegate, UICollectionViewDataSource, MultipleChoiceScrollViewDelegate>
 
 @property (nonatomic, strong) MultipleChoiceScrollView *collectionView;
-@property (nonatomic, strong) UIPageControl *pageControl;
-@property (nonatomic, strong) CALayer *bottomLine;
-@property (nonatomic, assign) NSInteger itemTotalPageCount;
-@property (nonatomic, assign) NSInteger currentPageIndex;
-@property (nonatomic, strong) NSArray *multipleItems;
+@property (nonatomic, strong) UIPageControl            *pageControl;
+@property (nonatomic, assign) NSInteger                itemTotalPageCount;
+@property (nonatomic, assign) NSInteger                currentPageIndex;
+@property (nonatomic, strong) NSArray                  *multipleItems;
 
 @end
 
@@ -54,7 +53,7 @@
         return nil;
     }
     self.backgroundColor = [UIColor whiteColor];
-    self.frame = CGRectMake(0, 0, kScreenWidth, kViewHeight);
+    self.size = CGSizeMake(kScreenWidth, kViewHeight);
     [self _initItems];
     [self _initCollectionView];
     [self _initPageControl];
@@ -63,7 +62,6 @@
 }
 
 - (void)_initItems {
-    
     NSArray *array = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"multipleChoice" ofType:@"plist"]];
     _multipleItems = array;
     _itemTotalPageCount += @(array.count).integerValue;
@@ -72,7 +70,6 @@
 - (void)_initCollectionView {
     
     CGFloat itemWidth = kScreenWidth / 4.0;
-    itemWidth = CGFloatPixelRound(itemWidth);
     
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -81,7 +78,7 @@
     layout.minimumInteritemSpacing = 0;
     
     _collectionView = [[MultipleChoiceScrollView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kCollectionViewHeight) collectionViewLayout:layout];
-    [_collectionView registerClass:[MultipleItemCell class] forCellWithReuseIdentifier:@"cell"];
+    [_collectionView registerClass:[MultipleItemCell class] forCellWithReuseIdentifier:[MultipleItemCell cellId]];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [self addSubview:_collectionView];
@@ -97,10 +94,10 @@
     _pageControl.pageIndicatorTintColor = kPageControlIndicatorTintColor;
     _pageControl.userInteractionEnabled = NO;
     
-    _bottomLine = [CALayer layer];
+    CALayer *_bottomLine = [CALayer layer];
     _bottomLine.size = CGSizeMake(kScreenWidth, CGFloatFromPixel(1));
     _bottomLine.bottom = self.height;
-    _bottomLine.backgroundColor = kBottomLineColor;
+    _bottomLine.backgroundColor = kYPLineColor;
     
     [self addSubview:_pageControl];
     [self.layer addSublayer:_bottomLine];
@@ -131,6 +128,7 @@
     return currentPageIndex;
 }
 
+
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -143,11 +141,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    MultipleItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+    MultipleItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[MultipleItemCell cellId] forIndexPath:indexPath];
     [self _configureCell:cell forRowAtIndexPath:indexPath];
     
     return cell;
 }
+
 
 #pragma mark - MultipleChoiceScrollViewDelegate
 
@@ -156,6 +155,7 @@
     // 向上传递
     NSLog(@"%@, %@", cell.descImageView, cell.descLabel.text);
 }
+
 
 #pragma mark - scrollViewDidScrollDelegate
 
@@ -184,14 +184,6 @@
     scrollView.contentOffset = CGPointMake(kScreenWidth, 0.0);
 }
 
-
-
 @end
-
-
-
-
-
-
 
 

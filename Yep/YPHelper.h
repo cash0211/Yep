@@ -24,6 +24,4 @@
 
 + (NSAttributedString *)attachmentWithImage:(UIImage *)image string:(NSString *)string;
 
-+ (NSAttributedString *)attachmentWithFontSize:(CGFloat)fontSize image:(UIImage *)image shrink:(BOOL)shrink;
-
 @end

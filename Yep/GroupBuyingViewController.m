@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) ComprehensiveView  *comprehensiveView;
+@property (nonatomic, strong) NSArray            *dataArr;
 
 @end
 
@@ -28,40 +29,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.view.backgroundColor = kYPBackgroundColor;
-
+    
+    [self _initData];
     [self _initNavBar];
     [self _initTableView];
     [self _initComprehensiveView];
-
+    
     MJChiBaoZiHeader *header = [MJChiBaoZiHeader headerWithRefreshingTarget:self refreshingAction:@selector(_loadNewData)];
     header.automaticallyChangeAlpha = YES;
     header.lastUpdatedTimeLabel.hidden = YES;
     header.stateLabel.hidden = YES;
     _tableView.mj_header = header;
     [_tableView.mj_header beginRefreshing];
-
+    
     [_tableView registerClass:[GuessLikeCell class] forCellReuseIdentifier:[GuessLikeCell cellId]];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    // Notification
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-- (void)dealloc {
-    
-}
 
 #pragma mark - Event response
 
@@ -74,7 +59,6 @@
 }
 
 - (void)_loadNewData {
-    
     sleep(1.5);
     [_tableView.mj_header endRefreshing];
 }
@@ -82,12 +66,14 @@
 
 #pragma mark - Private methods
 
+- (void)_initData {
+    NSMutableArray *mutableArr = [[NSMutableArray alloc] initWithObjects:@"", @"", @"", @"", @"", nil];
+    _dataArr = [mutableArr copy];
+}
+
 - (void)_initNavBar {
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"南京" style:UIBarButtonItemStylePlain target:self action:@selector(_chooseCity)];
-    UIButton *downArrow = [UIButton new];
-    [downArrow setImage:[UIImage imageNamed:@"downArrow"] forState:UIControlStateNormal];
-    UIBarButtonItem *downItem = [[UIBarButtonItem alloc] initWithCustomView:downArrow];
-    self.navigationItem.leftBarButtonItems = @[leftItem, downItem];
+    self.navigationItem.leftBarButtonItem = leftItem;
     
     // searchBar
 }
@@ -96,7 +82,6 @@
     _tableView = [UITableView new];
     _tableView.dataSource = self;
     _tableView.delegate = self;
-    
     _tableView.frame = self.view.bounds;
     _tableView.scrollIndicatorInsets = _tableView.contentInset;
     _tableView.backgroundColor = [UIColor clearColor];
@@ -105,8 +90,7 @@
 }
 
 - (void)_initComprehensiveView {
-    
-    _comprehensiveView = [[ComprehensiveView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    _comprehensiveView = [ComprehensiveView new];
     [_tableView addSubview:_comprehensiveView];
 }
 
@@ -120,7 +104,7 @@
     if (0 == section) {
         return 1;
     }
-    return 5;
+    return _dataArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,7 +126,6 @@
 #pragma mark - UITableViewDataDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -154,9 +137,4 @@
 }
 
 @end
-
-
-
-
-
 

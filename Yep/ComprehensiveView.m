@@ -51,7 +51,7 @@
 
 - (void)_initSubViews {
     
-    _categoryView = [[CategoryView alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    _categoryView = [CategoryView new];
     
     _normalCategoryView = [[NormalCategoryView alloc] initWithFrame:CGRectMake(0, _categoryView.bottom + kYPMargin, 0, 0)];
     _normalCategoryView.leftTitleLabel.text   = @"我们约会吧";
@@ -69,8 +69,4 @@
 
 
 @end
-
-
-
-
 

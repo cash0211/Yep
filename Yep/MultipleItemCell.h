@@ -13,4 +13,6 @@
 @property (nonatomic, strong) UIImageView *descImageView;
 @property (nonatomic, strong) UILabel     *descLabel;
 
++ (NSString *)cellId;
+
 @end

@@ -12,7 +12,7 @@
 
 @property (nonatomic, copy)   NSString *tagId;
 @property (nonatomic, assign) NSNumber *group;
-@property (nonatomic, assign) Boolean   needLogin;
+@property (nonatomic, assign) Boolean  needLogin;
 @property (nonatomic, copy)   NSString *subTitle;
 @property (nonatomic, assign) NSNumber *order;
 @property (nonatomic, copy)   NSString *url;

@@ -69,7 +69,6 @@
     _gridView.bottomRightImageView.image = [YPHelper imageNamed:@"findhome_guanzi"];
     _gridView.bottomRightTitleLabel.text = @"老字号馆子";
     _gridView.bottomRightDescLabel.text = @"地道够美味";
-    
     [self addSubview:_gridView];
 }
 
@@ -88,11 +87,7 @@
     _viewHeight += _multipleView.height + _promotionView.height + _gridView.height + _flowView.height + kYPMargin * 3;
 }
 
-
 @end
-
-
-
 
 
 

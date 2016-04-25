@@ -18,6 +18,8 @@
 #define kBtnImgViewSize           kGridHeight - kBtnSubViewsPadding * 2
 #define kBtnLabelWidth            (kGridWidth) - (kBtnSubViewsPadding * 3) - (kBtnImgViewSize)
 #define kBtnLabelHeight           20
+#define kBtnTitleLabelFontSize    14
+#define kBtnDescLabelFontSize     12
 
 #define kBtnDescLabelTextColor    UIColorHex(b4b4b4)
 
@@ -118,7 +120,7 @@
     _topLeftTitleLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
     _topLeftTitleLabel.userInteractionEnabled = NO;
     _topLeftTitleLabel.textColor = [UIColor orangeColor];
-    _topLeftTitleLabel.font = [UIFont systemFontOfSize:14];
+    _topLeftTitleLabel.font = [UIFont systemFontOfSize:kBtnTitleLabelFontSize];
     _topLeftTitleLabel.top = kBtnSubViewsPadding + 5;
     _topLeftTitleLabel.left = kBtnSubViewsPadding;
     
@@ -126,7 +128,7 @@
     _topRightTitleLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
     _topRightTitleLabel.userInteractionEnabled = NO;
     _topRightTitleLabel.textColor = [UIColor blueColor];
-    _topRightTitleLabel.font = [UIFont systemFontOfSize:14];
+    _topRightTitleLabel.font = [UIFont systemFontOfSize:kBtnTitleLabelFontSize];
     _topRightTitleLabel.top = kBtnSubViewsPadding + 5;
     _topRightTitleLabel.left = kBtnSubViewsPadding;
     
@@ -134,7 +136,7 @@
     _bottomLeftTitleLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
     _bottomLeftTitleLabel.userInteractionEnabled = NO;
     _bottomLeftTitleLabel.textColor = UIColorHex(ffcocb);
-    _bottomLeftTitleLabel.font = [UIFont systemFontOfSize:14];
+    _bottomLeftTitleLabel.font = [UIFont systemFontOfSize:kBtnTitleLabelFontSize];
     _bottomLeftTitleLabel.top = kBtnSubViewsPadding + 5;
     _bottomLeftTitleLabel.left = kBtnSubViewsPadding;
     
@@ -142,7 +144,7 @@
     _bottomRightTitleLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight);
     _bottomRightTitleLabel.userInteractionEnabled = NO;
     _bottomRightTitleLabel.textColor = UIColorHex(66f9cf);
-    _bottomRightTitleLabel.font = [UIFont systemFontOfSize:14];
+    _bottomRightTitleLabel.font = [UIFont systemFontOfSize:kBtnTitleLabelFontSize];
     _bottomRightTitleLabel.top = kBtnSubViewsPadding + 5;
     _bottomRightTitleLabel.left = kBtnSubViewsPadding;
     
@@ -155,7 +157,7 @@
     _topLeftDescLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight - 5);
     _topLeftDescLabel.userInteractionEnabled = NO;
     _topLeftDescLabel.textColor = kBtnDescLabelTextColor;
-    _topLeftDescLabel.font = [UIFont systemFontOfSize:12];
+    _topLeftDescLabel.font = [UIFont systemFontOfSize:kBtnDescLabelFontSize];
     _topLeftDescLabel.top = _topLeftTitleLabel.bottom + 5;
     _topLeftDescLabel.left = _topLeftTitleLabel.left;
     
@@ -163,7 +165,7 @@
     _topRightDescLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight - 5);
     _topRightDescLabel.userInteractionEnabled = NO;
     _topRightDescLabel.textColor = kBtnDescLabelTextColor;
-    _topRightDescLabel.font = [UIFont systemFontOfSize:12];
+    _topRightDescLabel.font = [UIFont systemFontOfSize:kBtnDescLabelFontSize];
     _topRightDescLabel.top = _topRightTitleLabel.bottom + 5;
     _topRightDescLabel.left = _topRightTitleLabel.left;
     
@@ -171,7 +173,7 @@
     _bottomLeftDescLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight - 5);
     _bottomLeftDescLabel.userInteractionEnabled = NO;
     _bottomLeftDescLabel.textColor = kBtnDescLabelTextColor;
-    _bottomLeftDescLabel.font = [UIFont systemFontOfSize:12];
+    _bottomLeftDescLabel.font = [UIFont systemFontOfSize:kBtnDescLabelFontSize];
     _bottomLeftDescLabel.top = _bottomLeftTitleLabel.bottom + 5;
     _bottomLeftDescLabel.left = _bottomLeftTitleLabel.left;
     
@@ -179,7 +181,7 @@
     _bottomRightDescLabel.size = CGSizeMake(kBtnLabelWidth, kBtnLabelHeight - 5);
     _bottomRightDescLabel.userInteractionEnabled = NO;
     _bottomRightDescLabel.textColor = kBtnDescLabelTextColor;
-    _bottomRightDescLabel.font = [UIFont systemFontOfSize:12];
+    _bottomRightDescLabel.font = [UIFont systemFontOfSize:kBtnDescLabelFontSize];
     _bottomRightDescLabel.top = _bottomRightTitleLabel.bottom + 5;
     _bottomRightDescLabel.left = _bottomRightTitleLabel.left;
     
@@ -197,7 +199,6 @@
     [self.layer addSublayer:_verticalLine];
     [self.layer addSublayer:_bottomLine];
     
-//    @weakify(self);
     [_topLeftBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
         // 向上传递
         NSLog(@"_topLeftBtn");
@@ -216,11 +217,5 @@
     }];
 }
 
-
 @end
-
-
-
-
-
 

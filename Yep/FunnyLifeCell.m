@@ -12,10 +12,8 @@
 #import "YPHelper.h"
 
 #define kCellHeight        86
-
 #define kImageViewWidth    90
 #define kImageViewHeight   kCellHeight - kYPMargin * 2
-
 #define kLabelWidth        kScreenWidth - kImageViewWidth - kYPMargin * 4
 
 @implementation FunnyLifeCell
@@ -84,10 +82,4 @@
 }
 
 @end
-
-
-
-
-
-
 
