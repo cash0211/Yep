@@ -19,7 +19,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) MyBlendedView *myBlendedView;
-@property (nonatomic, strong) NSArray *userCenterIndex;
+@property (nonatomic, copy)   NSArray *userCenterIndex;
 
 @end
 

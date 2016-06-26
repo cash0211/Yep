@@ -18,7 +18,7 @@
 
 @property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) ComprehensiveView  *comprehensiveView;
-@property (nonatomic, strong) NSArray            *dataArr;
+@property (nonatomic, copy)   NSArray            *dataArr;
 
 @end
 

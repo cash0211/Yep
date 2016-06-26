@@ -26,7 +26,7 @@
 @property (nonatomic, strong) UITableView        *tableView;
 @property (nonatomic, strong) BlendedView        *blendedView;
 @property (nonatomic, strong) FetchMoreCell      *moreCell;
-@property (nonatomic, strong) NSArray            *guessLikeItems;
+@property (nonatomic, copy)   NSArray            *guessLikeItems;
 
 @end
 

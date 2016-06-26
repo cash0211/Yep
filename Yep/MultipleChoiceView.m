@@ -167,6 +167,7 @@
     if (currentPageIndex != _currentPageIndex) {
         _currentPageIndex = currentPageIndex;
         _pageControl.currentPage = currentPageIndex;
+        
         NSMutableArray *mutable = _multipleItems.mutableCopy;
         if (_dragLeft) {
             NSArray *first = [mutable firstObject];

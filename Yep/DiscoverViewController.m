@@ -18,8 +18,8 @@
 @interface DiscoverViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSArray *solidDataArr;
-@property (nonatomic, strong) NSArray *dataArr;
+@property (nonatomic, copy)   NSArray *solidDataArr;
+@property (nonatomic, copy)   NSArray *dataArr;
 
 @end
 
